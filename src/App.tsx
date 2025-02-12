@@ -7,8 +7,45 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import Navbar from "./components/Navbar";
 
 function App() {
+  const bentoSections = [
+    {
+      id: 1,
+      title: "Beyond the Code",
+      subtitle: "DefineHack is more than just coding.",
+      size: "large",
+    },
+    {
+      id: 2,
+      title: "Expanding Your Skillsets",
+      subtitle:
+        "Learn new technologies, refine your coding abilities, and gain practical experience.",
+      size: "medium",
+    },
+    {
+      id: 3,
+      title: "Expanding Your Skillsets",
+      subtitle:
+        "Learn new technologies, refine your coding abilities, and gain practical experience.",
+      size: "medium",
+    },
+    {
+      id: 4,
+      title: "Expanding Your Skill",
+      subtitle:
+        "Learn new technologies, refine your coding abilities, and gain practical experience.",
+      size: "small",
+    },
+    {
+      id: 5,
+      title: "Expanding Your Skillsets",
+      subtitle:
+        "Learn new technologies, refine your coding abilities, and gain practical experience.",
+      size: "small",
+    },
+  ];
+
   return (
-    <div className="text-white  min-h-screen z-0">
+    <div className="text-white  min-h-screen overflow-x-hidden w-full">
       <Navbar />
       <section className="flex flex-col sm:flex-row w-full h-full bg-gradient-to-b from-[#05050A] via-[#05050af7] to-[#05050A] min-h-screen">
         <div className="w-full h-full flex flex-col justify-center p-10 lg:p-40">
@@ -68,7 +105,48 @@ function App() {
           collaboration, and creation. Transform your wildest ideas into
           tangible projects, surrounded by <br /> a community of passionate
           engineers. This isn't just a hackathon; it's an experience.
-        </h2>{" "}
+        </h2>
+      </section>
+      <section className="flex flex-col w-full h-full bg-[#05050A] justify-center items-center min-h-screen gap-[28px]">
+        <h1 className="text-[48px] font-light tracking-[-1.4px] bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-transparent">
+          Beyond the Code
+        </h1>
+        <h2 className="text-[#f1f7fe] opacity-[70%] font-light text-[20px]">
+          DefineHack is more than just coding.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[200px] w-[60vw] mx-auto">
+          {bentoSections.map((section) => (
+            <a
+              href="#"
+              key={section.id}
+              className={`group relative rounded-xl bg-white/[0.01] p-6 transition-all duration-300 hover:bg-zinc-800 border-[0.1px] border-[#ffffff10]
+              ${
+                section.id === 1
+                  ? "col-span-1 row-span-2"
+                  : section.id == 2
+                  ? "col-span-2 row-span-1"
+                  : section.id == 4
+                  ? "md:col-span-1 md:row-span-2"
+                  : section.id == 5
+                  ? "md:col-span-2 md:row-span-1"
+                  : ""
+              }
+             
+            `}
+            >
+              <div className="relative h-full w-full">
+                <div className="flex flex-col gap-2">
+                  <h2
+                    className="text-[24px] leading-[10px] mb-4">
+                    {section.title}
+                  </h2>
+                  <p className="text-gray-400 text-[12px] leading-[16px]">{section.subtitle}</p>
+                </div>
+              </div>
+              <div className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/10 transition-all duration-300 group-hover:ring-white/20" />
+            </a>
+          ))}
+        </div>
       </section>
     </div>
   );
