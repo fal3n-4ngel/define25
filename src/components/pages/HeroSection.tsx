@@ -2,7 +2,7 @@ import { VersionBadge } from "../ui/VersionBadge";
 
 export const HeroContent = () => {
     return (
-      <div className="w-full h-full flex flex-col justify-center p-10 lg:p-40">
+      <div className="flex-1 flex flex-col justify-center p-10 lg:pl-40">
         <VersionBadge />
         <h1 className="scroll-m-20 text-[96px] font-[400px] tracking-none bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent leading-none">
           Define <br />
