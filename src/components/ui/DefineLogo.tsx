@@ -1,53 +1,43 @@
 
 import * as THREE from "three";
-import { MeshTransmissionMaterial, useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
-import { useControls } from "leva"
-import { useEffect, useMemo, useRef } from "react";
+import { CubeCamera, MeshRefractionMaterial, useGLTF } from "@react-three/drei";
+import { GLTF, RGBELoader } from "three-stdlib";
+import { useLoader } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube003: THREE.Mesh;
+    Cube005: THREE.Mesh;
   };
   materials: {
     ["Material.001"]: THREE.MeshStandardMaterial;
   };
 };
 
-export function DefineModel(props: JSX.IntrinsicElements["group"]) {
-  const modelRef = useRef<THREE.Mesh>(null);
 
-  useEffect( () => {
-    modelRef.current?.geometry.computeBoundingBox();
-    const boundingBox = modelRef.current?.geometry.boundingBox;
-    const center = new THREE.Vector3();
-    boundingBox?.getCenter(center);
-    modelRef.current?.geometry.translate(-center.x,-center.y,-center.z);            
-});
-  
-  const { nodes } = useGLTF("/untitled.glb") as GLTFResult;
+export function DefineLogo(props: JSX.IntrinsicElements["group"]) {
+  const { nodes } = useGLTF('/dispglass.glb') as GLTFResult
+  const texture = useLoader(RGBELoader, 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr')
+  const config = {
+    bounces: 3,
+    aberrationStrength: 0.02,
+    ior: 1.45,
+    fresnel: 1,
+    color: 'white'
+  }
+  const size = 0.7;
   return (
-    <group {...props} dispose={null}>
-      <mesh ref={modelRef}
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube003.geometry}
-        position={[0, 0, 0]}
-        rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
-        scale={[2, 1, 1]}
-      >
-        <MeshTransmissionMaterial
-            roughness={0.1}
-            chromaticAberration={1}
-            attenuationDistance={0.1}
-            transmission={1}
-            thickness={1}
-            reflectivity={0.5}
-            ior={1}
-            backside
-            backsideThickness={10}
-        />
-      </mesh>
-    </group>
-  );
+    <CubeCamera resolution={256} frames={1} envMap={texture}>
+      {(texture) => (
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube005.geometry}
+          position={[3.112, 2.6286, -0.976]}
+          rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
+          scale={[2*size, 1*size, 1*size]}>
+          <MeshRefractionMaterial envMap={texture} {...config} toneMapped={false} />
+        </mesh>
+      )}
+    </CubeCamera>
+  )
 }
