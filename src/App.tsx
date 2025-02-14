@@ -10,7 +10,7 @@ import { bentoSections } from "./data/bentoSections";
 function App() {
   return (
     <div className="text-white min-h-screen overflow-x-hidden w-full">
-      <section className="relative flex flex-col w-full h-full items-stretch justify-start bg-[#000000] min-h-screen ">
+      <section className="relative flex flex-col w-full h-full items-stretch justify-start bg-[#05050A]  min-h-screen ">
         <Navbar />
         <HeroContent />
         <div className="lg:pl-40  z-10">
