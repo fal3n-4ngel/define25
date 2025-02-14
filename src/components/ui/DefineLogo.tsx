@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { CubeCamera, MeshRefractionMaterial, useGLTF } from "@react-three/drei";
 import { GLTF, RGBELoader } from "three-stdlib";
-import { useLoader, useFrame } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 
 type GLTFResult = GLTF & {
@@ -15,6 +15,7 @@ type GLTFResult = GLTF & {
 
 // Separate DefineLogo component with optimizations
 export function DefineLogo(props: JSX.IntrinsicElements["group"]) {
+  console.log(props)
   const { nodes } = useGLTF("/dispglass.glb", true) as GLTFResult; // Added draco compression
   const texture = useLoader(RGBELoader, 
     "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr",
