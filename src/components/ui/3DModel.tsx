@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { DefineLogo } from "./DefineLogo";
 import {
   EffectComposer,
@@ -33,7 +32,7 @@ export const Model3D = () => {
       <Canvas
         shadows
         camera={{ position: [0, 1.5, 15], fov: 40 }}
-        className="ml-80"
+        // className="ml-80"
         dpr={[1, 2]} 
         performance={{ min: 0.5 }} 
       >
@@ -45,14 +44,14 @@ export const Model3D = () => {
 
         <DefineLogo />
 
-        <OrbitControls
+        {/* <OrbitControls
           makeDefault
           autoRotate
           autoRotateSpeed={6.0}
           minPolarAngle={Math.PI / 5}
           maxPolarAngle={Math.PI / 2}
           enableZoom={false}
-        />
+        /> */}
 
         <EffectComposer multisampling={8} >
           <Bloom
