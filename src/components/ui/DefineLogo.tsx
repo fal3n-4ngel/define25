@@ -5,7 +5,7 @@ import { GroupProps, useFrame, useLoader } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
 import { useDrag } from "@use-gesture/react";
 
-// Define the type for the GLTF model
+
 interface GLTFResult extends GLTF {
   nodes: {
     Cube005: THREE.Mesh;
@@ -19,21 +19,21 @@ export function DefineLogo() {
   const logoRef = useRef<THREE.Group>(null);
   const [dragging, setDragging] = useState(false);
   
-  // Load the 3D model
+  
   const { nodes } = useGLTF("/dispglass.glb", true) as GLTFResult;
 
-  // Load HDR environment texture
+  
   const texture = useLoader(
     RGBELoader,
     "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr",
     (loader) => {
-      loader.setDataType(THREE.HalfFloatType); // Optimized for performance
+      loader.setDataType(THREE.HalfFloatType); 
     }
   );
 
-  // Configuration for the refraction material
+  
   const materialConfig = useMemo(() => ({
-    bounces: 2, // Reduced bounces for better performance
+    bounces: 2, 
     aberrationStrength: 0.02,
     ior: 1.45,
     fresnel: 1,
@@ -44,39 +44,56 @@ export function DefineLogo() {
   const size = 0.7;
   const meshRef = useRef<THREE.Mesh>(null);
 
-  // Memoized transformation properties for the mesh
+  
   const meshProps = useMemo(() => ({
     position: new THREE.Vector3(2.112, 2.6286, -0.976),
     rotation: new THREE.Euler(-Math.PI / 1.8, -Math.PI / 2.75, 0),
     scale: new THREE.Vector3(2 * size, 0.8 * size, 1 * size),
   }), [size]);
 
-  // Handle drag interaction for rotating the logo
-  const bind = useDrag(({ offset: [mx, my], first, last }) => {
-    if (first) setDragging(true);
+  
+  const bind = useDrag(({ movement: [mx, my], delta: [dx, dy], first, last }) => {
+    if (first) {
+      setDragging(true);
+      
+      lastMouseRef.current = { x: mx, y: my };
+    }
     if (last) setDragging(false);
-
+  
     if (logoRef.current) {
       const object = logoRef.current;
       const cameraDirection = new THREE.Vector3();
       const up = new THREE.Vector3(0, 1, 0);
       const right = new THREE.Vector3(1, 0, 0);
-
+  
       if (object.parent) {
         object.parent.getWorldDirection(cameraDirection);
         cameraDirection.normalize();
         right.crossVectors(up, cameraDirection).normalize();
       }
-
-      const angleX = -my * 0.0005;
-      const angleY = -mx * 0.0005;
-
-      object.rotateOnWorldAxis(right, angleX);
-      object.rotateOnWorldAxis(up, angleY);
+  
+      
+      const sensitivity = 0.005; 
+      const deltaX = -dx * sensitivity;
+      const deltaY = -dy * sensitivity;
+  
+      
+      const rotationX = -deltaY; 
+      const rotationY = -deltaX;
+  
+      
+      object.rotateOnWorldAxis(right, rotationX);
+      object.rotateOnWorldAxis(up, rotationY);
+  
+      
+      lastMouseRef.current = { x: mx, y: my };
     }
   });
+  
+  
+  const lastMouseRef = useRef({ x: 0, y: 0 });
 
-  // Rotate the logo automatically when not dragging
+  
   useFrame(() => {
     if (!logoRef.current || dragging) return;
     logoRef.current.rotation.y += 0.01;
@@ -84,8 +101,8 @@ export function DefineLogo() {
 
   return (
     <CubeCamera
-      resolution={128} // Lower resolution for performance
-      frames={1} // Update only once for efficiency
+      resolution={128} 
+      frames={1} 
       envMap={texture}
       far={-10}
       near={10}

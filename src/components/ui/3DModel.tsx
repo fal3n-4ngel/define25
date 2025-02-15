@@ -32,7 +32,6 @@ export const Model3D = () => {
       <Canvas
         shadows
         camera={{ position: [0, 1.5, 15], fov: 40 }}
-        // className="ml-80"
         dpr={[1, 2]} 
         performance={{ min: 0.5 }} 
       >
@@ -43,15 +42,6 @@ export const Model3D = () => {
         <spotLight {...lights.spotLight} />
 
         <DefineLogo />
-
-        {/* <OrbitControls
-          makeDefault
-          autoRotate
-          autoRotateSpeed={6.0}
-          minPolarAngle={Math.PI / 5}
-          maxPolarAngle={Math.PI / 2}
-          enableZoom={false}
-        /> */}
 
         <EffectComposer multisampling={8} >
           <Bloom
