@@ -102,6 +102,7 @@ export function DefineLogoTemp() {
   
   useFrame((state, delta) => {
     if (!logoRef.current || dragging) return;
+    console.log(state)
     logoRef.current.rotation.y += delta * 0.5; 
   });
 
