@@ -36,19 +36,16 @@ export const Model3D = () => {
         performance={{ min: 0.5 }} 
       >
         <color attach="background" args={["#05050A"]} />
-        <fog attach="fog" args={["#05050A", 0, 100]} />
-        <ambientLight intensity={lights.ambient} />
-        <pointLight {...lights.pointLight} />
-        <spotLight {...lights.spotLight} />
+        
 
         <DefineLogo />
 
-        <EffectComposer multisampling={8} >
+        <EffectComposer multisampling={0} >
           <Bloom
             mipmapBlur
             luminanceThreshold={1}
             intensity={0.3}
-            luminanceSmoothing={1}
+        
           />
        
           <HueSaturation hue={0} saturation={-0.25} />
