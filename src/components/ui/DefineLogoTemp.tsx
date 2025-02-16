@@ -14,7 +14,6 @@ interface GLTFResult extends GLTF {
   };
 }
 
-// Preload texture
 const textureLoader = new RGBELoader();
 textureLoader.setDataType(THREE.HalfFloatType);
 
@@ -23,25 +22,17 @@ export function DefineLogoTemp() {
   const meshRef = useRef<THREE.Mesh>(null);
   const [dragging, setDragging] = useState(false);
   
-
   const initialRotation = useMemo(() => new THREE.Euler(-0, 0, 0), []);
-  
+  const autoRotationSpeed = 0.5;
+  const lastDragTime = useRef(0);
 
-  const targetRotation = useRef({
-    x: initialRotation.x,
-    y: initialRotation.y
-  });
-
-  // Load and cache model
   const { nodes } = useGLTF("/dispglass.glb", true) as GLTFResult;
   
-  // Use preloaded texture
   const texture = useLoader(
     RGBELoader,
     "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr"
   );
 
-  // Memoized configurations
   const materialConfig = useMemo(() => ({
     bounces: 1,
     aberrationStrength: 0.02,
@@ -58,65 +49,63 @@ export function DefineLogoTemp() {
     scale: new THREE.Vector3(2 * size, 0.8 * size, 1 * size),
   }), [size, initialRotation]);
 
-
-  const MAX_ROTATION = Math.PI / 4; 
-
+  const MAX_ROTATION = Math.PI / 4;
 
   const clampRotation = (value: number, min: number, max: number) => {
     return Math.min(Math.max(value, min), max);
   };
 
-
   const bind = useDrag(({ delta: [dx, dy], first, last }) => {
-    if (first) setDragging(true);
+    if (first) {
+      setDragging(true);
+      lastDragTime.current = Date.now();
+    }
     if (last) {
       setDragging(false);
-      // // Store target rotation for spring back
-      // targetRotation.current = {
-      //   x: initialRotation.x,
-      //   y: initialRotation.y
-      // };
+      // Add a small delay before auto-rotation resumes
+      lastDragTime.current = Date.now();
     }
     
     if (logoRef.current) {
       const sensitivity = 0.005;
       
-   
       const newRotationY = clampRotation(
         logoRef.current.rotation.y - dx * sensitivity,
-        initialRotation.y - MAX_ROTATION,
-        initialRotation.y + MAX_ROTATION
+        logoRef.current.rotation.y - MAX_ROTATION,
+        logoRef.current.rotation.y + MAX_ROTATION
       );
       
       const newRotationX = clampRotation(
         logoRef.current.rotation.x - dy * sensitivity,
-        initialRotation.x - MAX_ROTATION,
-        initialRotation.x + MAX_ROTATION
+        // initialRotation.x - MAX_ROTATION, -> not limiting the rotation coz it glitches fix later
+        // initialRotation.x + MAX_ROTATION
+
+        logoRef.current.rotation.x - MAX_ROTATION,
+        logoRef.current.rotation.x + MAX_ROTATION
       );
 
-      // Apply constrained rotations
       logoRef.current.rotation.y = newRotationY;
       logoRef.current.rotation.x = newRotationX;
     }
   });
   
   useFrame((state, delta) => {
-    if (!logoRef.current || dragging) return;
-    console.log(state)
-    logoRef.current.rotation.y += delta * 0.5; 
-  });
+    if (!logoRef.current) return;
 
-  useFrame((state, delta) => {
-    console.log(state)
-    if (!logoRef.current || dragging) return;
+    // Add a delay after dragging before auto-rotation resumes
+    const timeSinceLastDrag = Date.now() - lastDragTime.current;
+    const dragCooldown = 100; // milliseconds
 
+    if (!dragging && timeSinceLastDrag > dragCooldown) {
+      // Auto rotation
+      logoRef.current.rotation.y += delta * autoRotationSpeed;
 
-    const springStrength = 5;
-    const dampingFactor = 0.8;
-
-    const dy = (targetRotation.current.x - logoRef.current.rotation.x) * springStrength * delta;
-    logoRef.current.rotation.y += delta * 0.05; 
-    logoRef.current.rotation.x += dy * dampingFactor;
+      // Spring back for X rotation
+      const springStrength = 5;
+      const dampingFactor = 0.8;
+      const dx = (initialRotation.x - logoRef.current.rotation.x) * springStrength * delta;
+      logoRef.current.rotation.x += dx * dampingFactor;
+    }
   });
 
   return (
@@ -144,5 +133,4 @@ export function DefineLogoTemp() {
   );
 }
 
-// Cleanup function
 useGLTF.preload("/dispglass.glb");

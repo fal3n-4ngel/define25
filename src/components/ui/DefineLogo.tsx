@@ -5,7 +5,8 @@ import { GroupProps, useFrame, useLoader } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
 import { useDrag } from "@use-gesture/react";
 
-// Define interfaces
+// DefineLogoTEMP nook
+
 interface GLTFResult extends GLTF {
   nodes: {
     Cube005: THREE.Mesh;
