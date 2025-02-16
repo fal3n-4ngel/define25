@@ -52,7 +52,7 @@ export function DefineLogoTemp() {
       rotation: new THREE.Euler(-Math.PI / 1.7, -Math.PI / 2.75, 0),
       scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
     }),
-    [size, initialRotation]
+    [size]
   );
 
   const MAX_ROTATION = Math.PI / 4;
@@ -95,10 +95,8 @@ export function DefineLogoTemp() {
     }
   });
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!logoRef.current) return;
-    console.log(state);
-
     const timeSinceLastDrag = Date.now() - lastDragTime.current;
     const dragCooldown = 100; // milliseconds
 
