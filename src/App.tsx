@@ -7,6 +7,7 @@ import { Model3D } from "./components/ui/3DModel";
 // import { BentoGrid } from "./components/ui/BentoGrid";
 // import { bentoSections } from "./data/bentoSections";
 import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 //import Marquee from "react-fast-marquee";
 function App() {
   const { ref: modelRef, inView: modelInView } = useInView({
@@ -14,15 +15,30 @@ function App() {
     threshold: 0.1,
   });
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="text-white min-h-screen overflow-x-hidden w-full bg-[#05050A]">
       <section className="relative flex flex-col w-full h-full items-stretch justify-start bg-[#05050A]  min-h-screen ">
         <Navbar />
         <HeroContent />
-        <div className="lg:pl-40  z-10">
-          <button className="bg-white text-sm text-black rounded-full max-w-[146px] py-2 px-4 mt-12 z-10 cursor-pointer ">
-            Coming Soon
-          </button>
+        <div className="lg:pl-40  z-10 pt-10">
+          <div
+            className="apply-button"
+            data-hackathon-slug="definehack-3"
+            data-button-theme="dark-inverted"
+            style={{ height: '44px', width: '312px' }}
+          />
         </div>
         <div ref={modelRef} className="absolute top-0 left-0 w-full h-full z-0">
           {modelInView && <Model3D />}

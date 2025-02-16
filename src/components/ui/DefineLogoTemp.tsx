@@ -49,7 +49,7 @@ export function DefineLogoTemp() {
   const meshProps = useMemo(
     () => ({
       position: new THREE.Vector3(2.112, 2.6286, -0.976),
-      rotation: new THREE.Euler(-Math.PI / 1.7, -Math.PI / 2.75, 0),
+      rotation: new THREE.Euler(-Math.PI / 1.8, -Math.PI / 2.75, 0),
       scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
     }),
     [size, initialRotation]

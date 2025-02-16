@@ -9,9 +9,9 @@ function Navbar() {
           <a href="#sponsorship">Coming Soon</a>
           <a href="#contact">Coming Soon</a>
         </div>
-        <button className="text-black bg-white px-[22px] py-2 text-[16px] rounded-full z-10 cursor-pointer">
+        {/* <button className="text-black bg-white px-[22px] py-2 text-[16px] rounded-full z-10 cursor-pointer">
           Coming Soon
-        </button>
+        </button> */}
       </div>
     </nav>
   );
