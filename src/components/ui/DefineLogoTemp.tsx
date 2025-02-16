@@ -23,10 +23,10 @@ export function DefineLogoTemp() {
   const meshRef = useRef<THREE.Mesh>(null);
   const [dragging, setDragging] = useState(false);
   
-  // Store initial rotation
+
   const initialRotation = useMemo(() => new THREE.Euler(-0, 0, 0), []);
   
-  // Store current rotation for spring back
+
   const targetRotation = useRef({
     x: initialRotation.x,
     y: initialRotation.y
@@ -108,12 +108,10 @@ export function DefineLogoTemp() {
   useFrame((state, delta) => {
     if (!logoRef.current || dragging) return;
 
-    // Spring constants
+
     const springStrength = 5;
     const dampingFactor = 0.8;
 
-    // Calculate spring force
-    const dx = (targetRotation.current.y - logoRef.current.rotation.y) * springStrength * delta;
     const dy = (targetRotation.current.x - logoRef.current.rotation.x) * springStrength * delta;
     logoRef.current.rotation.y += delta * 0.05; 
     logoRef.current.rotation.x += dy * dampingFactor;

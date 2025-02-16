@@ -18,15 +18,13 @@ interface GLTFResult extends GLTF {
 // Preload texture
 const textureLoader = new RGBELoader();
 textureLoader.setDataType(THREE.HalfFloatType);
-const texturePromise = textureLoader.loadAsync(
-  "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr"
-);
+
 
 export function DefineLogo() {
   const logoRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null);
   const [dragging, setDragging] = useState(false);
-  const lastMouseRef = useRef({ x: 0, y: 0 });
+
   
   // Load and cache model
   const { nodes } = useGLTF("/dispglass.glb", true) as GLTFResult;
