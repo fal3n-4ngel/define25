@@ -30,7 +30,7 @@ export function DefineLogoTemp() {
   
   const texture = useLoader(
     RGBELoader,
-    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_08_1k.hdr"
+    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_03_1k.hdr"
   );
 
   const materialConfig = useMemo(() => ({
