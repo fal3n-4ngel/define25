@@ -91,6 +91,7 @@ export function DefineLogoTemp() {
   
   useFrame((state, delta) => {
     if (!logoRef.current) return;
+    console.log(state)
 
     // Add a delay after dragging before auto-rotation resumes
     const timeSinceLastDrag = Date.now() - lastDragTime.current;
