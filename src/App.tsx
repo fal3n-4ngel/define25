@@ -33,7 +33,7 @@ function App() {
         <Navbar />
         <HeroContent />
         <div className="lg:pl-40  z-10 pt-10">
-          <div
+          <button
             className="apply-button"
             data-hackathon-slug="definehack-3"
             data-button-theme="dark-inverted"
