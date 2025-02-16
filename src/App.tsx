@@ -44,6 +44,18 @@ function App() {
           {modelInView && <Model3D />}
         </div>
       </section>
+      <section className="bg-[#05050A] w-full flex  flex-col justify-center items-center">
+        <h1 className="font-extralight tracking-tight  text-[56px] text-white">The backbone of Define</h1>
+        <h2 className="text-[#f1f7fea0] font-light">The ones who support the Hackathon</h2>
+        <div className="grid grid-cols-1 py-4">
+          <a href="https://devfolio.co"><img src="DEVFOLIO LOGO.svg" alt="DEVFOLIO LOGO" className="w-40 h-fit py-4 px-8 bg-white rounded-xl" /></a>
+       
+        </div>
+        <div className="flex gap-8 justify-center items-center py-12">
+          <h2 className="text-[#f1f7fea0] font-light">Would like to extend your support?</h2>
+          <a className="bg-white rounded-full px-4 py-2 text-black cursor-pointer">View Sponsorship Guide</a>
+        </div>
+      </section>
       {/* <Marquee
         className="border-y border-white bg-black w-full text-xl"
         gradientColor="#05050A"
