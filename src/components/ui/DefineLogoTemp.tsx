@@ -107,6 +107,7 @@ export function DefineLogoTemp() {
   });
 
   useFrame((state, delta) => {
+    console.log(state)
     if (!logoRef.current || dragging) return;
 
 
