@@ -46,7 +46,7 @@ export function DefineLogoTemp() {
   const meshProps = useMemo(() => ({
     position: new THREE.Vector3(2.112, 2.6286, -0.976),
     rotation: new THREE.Euler(-Math.PI / 1.8, -Math.PI / 2.75, 0), 
-    scale: new THREE.Vector3(2 * size, 0.8 * size, 1 * size),
+    scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
   }), [size, initialRotation]);
 
   const MAX_ROTATION = Math.PI / 4;
@@ -62,7 +62,7 @@ export function DefineLogoTemp() {
     }
     if (last) {
       setDragging(false);
-      // Add a small delay before auto-rotation resumes
+     
       lastDragTime.current = Date.now();
     }
     
@@ -93,15 +93,15 @@ export function DefineLogoTemp() {
     if (!logoRef.current) return;
     console.log(state)
 
-    // Add a delay after dragging before auto-rotation resumes
+
     const timeSinceLastDrag = Date.now() - lastDragTime.current;
     const dragCooldown = 100; // milliseconds
 
     if (!dragging && timeSinceLastDrag > dragCooldown) {
-      // Auto rotation
+
       logoRef.current.rotation.y += delta * autoRotationSpeed;
 
-      // Spring back for X rotation
+
       const springStrength = 5;
       const dampingFactor = 0.8;
       const dx = (initialRotation.x - logoRef.current.rotation.x) * springStrength * delta;

@@ -7,13 +7,12 @@ import { IntroSection } from "./components/pages/IntroSection";
 import { BentoGrid } from "./components/ui/BentoGrid";
 import { bentoSections } from "./data/bentoSections";
 import { useInView } from "react-intersection-observer";
-
+import Marquee from "react-fast-marquee";
 function App() {
   const { ref: modelRef, inView: modelInView } = useInView({
-    triggerOnce:false,
+    triggerOnce: false,
     threshold: 0.1,
   });
-  
 
   return (
     <div className="text-white min-h-screen overflow-x-hidden w-full bg-[#05050A]">
@@ -29,6 +28,19 @@ function App() {
           {modelInView && <Model3D />}
         </div>
       </section>
+      <Marquee
+        className="border-y border-white bg-black w-full text-xl"
+        gradientColor="#05050A"
+        gradient={true}
+        speed={40}
+      >
+        <div className="flex items-center gap-8 py-4 px-4">
+          POWERED BY <div className="w-2" /> UST GLOBAL <div className="w-2" />x{" "}
+          <div className="w-2" /> Ministry of Ayurveda, Yoga & Naturopathy,
+          Unani, Siddha and Homoeopathy
+          <div className="w-8" /> {/* Spacer between repetitions */}
+        </div>
+      </Marquee>
       <TaglineSection />
       <IntroSection />
       <BentoGrid sections={bentoSections} />
