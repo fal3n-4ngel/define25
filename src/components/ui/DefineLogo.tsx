@@ -65,8 +65,8 @@ export function DefineLogo() {
   });
 
   // Optimized animation frame with delta time
-  useFrame((state, delta) => {
-    console.log(state)
+  useFrame((_state, delta) => {
+    
     if (!logoRef.current || dragging) return;
     logoRef.current.rotation.y += delta * 0.5; // Smooth rotation based on frame delta
   });

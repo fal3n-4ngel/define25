@@ -95,9 +95,9 @@ export function DefineLogoTemp() {
     }
   });
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!logoRef.current) return;
-    console.log(state);
+   
 
     const timeSinceLastDrag = Date.now() - lastDragTime.current;
     const dragCooldown = 100; // milliseconds
@@ -116,7 +116,7 @@ export function DefineLogoTemp() {
   });
 
   return (
-    <CubeCamera resolution={10} frames={60} envMap={texture} far={-10} near={10}>
+    <CubeCamera resolution={10} frames={1} envMap={texture} far={-10} near={10}>
       {(envMap) => (
         <group
           ref={logoRef}
