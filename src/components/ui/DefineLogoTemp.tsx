@@ -21,33 +21,39 @@ export function DefineLogoTemp() {
   const logoRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null);
   const [dragging, setDragging] = useState(false);
-  
+
   const initialRotation = useMemo(() => new THREE.Euler(-0, 0, 0), []);
   const autoRotationSpeed = 0.5;
   const lastDragTime = useRef(0);
 
   const { nodes } = useGLTF("/dispglass.glb", true) as GLTFResult;
-  
+
   const texture = useLoader(
     RGBELoader,
-    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_03_1k.hdr"
+    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_02_1k.hdr"
   );
 
-  const materialConfig = useMemo(() => ({
-    bounces: 1,
-    aberrationStrength: 0.02,
-    ior: 1.45,
-    fresnel: 1,
-    color: "white",
-    transmissionSampler: true,
-  }), []);
+  const materialConfig = useMemo(
+    () => ({
+      bounces: 3,
+      aberrationStrength: 0.02,
+      ior: 1.45,
+      fresnel: 1,
+      color: "white",
+      transmissionSampler: false,
+    }),
+    []
+  );
 
-  const size = 0.7;
-  const meshProps = useMemo(() => ({
-    position: new THREE.Vector3(2.112, 2.6286, -0.976),
-    rotation: new THREE.Euler(-Math.PI / 1.8, -Math.PI / 2.75, 0), 
-    scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
-  }), [size, initialRotation]);
+  const size = 0.75;
+  const meshProps = useMemo(
+    () => ({
+      position: new THREE.Vector3(2.112, 2.6286, -0.976),
+      rotation: new THREE.Euler(-Math.PI / 1.7, -Math.PI / 2.75, 0),
+      scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
+    }),
+    [size, initialRotation]
+  );
 
   const MAX_ROTATION = Math.PI / 4;
 
@@ -62,19 +68,19 @@ export function DefineLogoTemp() {
     }
     if (last) {
       setDragging(false);
-     
+
       lastDragTime.current = Date.now();
     }
-    
+
     if (logoRef.current) {
       const sensitivity = 0.005;
-      
+
       const newRotationY = clampRotation(
         logoRef.current.rotation.y - dx * sensitivity,
         logoRef.current.rotation.y - MAX_ROTATION,
         logoRef.current.rotation.y + MAX_ROTATION
       );
-      
+
       const newRotationX = clampRotation(
         logoRef.current.rotation.x - dy * sensitivity,
         // initialRotation.x - MAX_ROTATION, -> not limiting the rotation coz it glitches fix later
@@ -88,40 +94,36 @@ export function DefineLogoTemp() {
       logoRef.current.rotation.x = newRotationX;
     }
   });
-  
+
   useFrame((state, delta) => {
     if (!logoRef.current) return;
-    console.log(state)
-
+    console.log(state);
 
     const timeSinceLastDrag = Date.now() - lastDragTime.current;
     const dragCooldown = 100; // milliseconds
 
     if (!dragging && timeSinceLastDrag > dragCooldown) {
-
       logoRef.current.rotation.y += delta * autoRotationSpeed;
-
 
       const springStrength = 5;
       const dampingFactor = 0.8;
-      const dx = (initialRotation.x - logoRef.current.rotation.x) * springStrength * delta;
+      const dx =
+        (initialRotation.x - logoRef.current.rotation.x) *
+        springStrength *
+        delta;
       logoRef.current.rotation.x += dx * dampingFactor;
     }
   });
 
   return (
-    <CubeCamera resolution={16} frames={1} envMap={texture} far={-10} near={10}>
+    <CubeCamera resolution={10} frames={60} envMap={texture} far={-10} near={10}>
       {(envMap) => (
         <group
           ref={logoRef}
           position={[5, -1, -1]}
           {...(bind() as unknown as GroupProps)}
         >
-          <mesh 
-            ref={meshRef} 
-            geometry={nodes.Cube005.geometry} 
-            {...meshProps}
-          >
+          <mesh ref={meshRef} geometry={nodes.Cube005.geometry} {...meshProps}>
             <MeshRefractionMaterial
               envMap={envMap}
               {...materialConfig}

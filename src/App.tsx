@@ -44,7 +44,20 @@ function App() {
       <TaglineSection />
       <IntroSection />
       <BentoGrid sections={bentoSections} />
-      <section className="bg-[#05050A] w-full min-h-screen"></section>
+      <section className="bg-[#05050A] w-full flex  flex-col justify-center items-center">
+      <h1 className="font-extralight tracking-tight  text-[56px] text-white">The backbone of Define</h1>
+      <h2 className="text-[#f1f7fea0] font-light">The ones who support the Hackathon</h2>
+      <div className="grid grid-cols-4 py-8 gap-4">
+        <img src="sponsorDummy.png" alt="Define Logo" />
+        <img src="sponsorDummy.png" alt="Define Logo" />
+        <img src="sponsorDummy.png" alt="Define Logo" />
+        <img src="sponsorDummy.png" alt="Define Logo" />
+      </div>
+      <div className="flex gap-8 justify-center items-center py-12">
+      <h2 className="text-[#f1f7fea0] font-light">Would like to extend your support?</h2>
+      <a className="bg-white rounded-full px-4 py-2 text-black cursor-pointer">View Sponsorship Guide</a>
+      </div>
+      </section>
       <section className="bg-[#05050A] w-full min-h-screen"></section>
     </div>
   );
