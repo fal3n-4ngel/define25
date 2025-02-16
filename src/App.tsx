@@ -47,9 +47,10 @@ function App() {
       <section className="bg-[#05050A] w-full flex  flex-col justify-center items-center">
         <h1 className="font-extralight tracking-tight  text-[56px] text-white">The backbone of Define</h1>
         <h2 className="text-[#f1f7fea0] font-light">The ones who support the Hackathon</h2>
-        <div className="grid grid-cols-2 py-4 gap-4">
+        <div className="grid grid-cols-3 py-4 gap-4">
           <a href="https://devfolio.co"><img src="DEVFOLIO LOGO.svg" alt="DEVFOLIO LOGO" className="w-40 h-fit py-4 px-8 bg-white rounded-xl" /></a>
           <a href="https://ethindia.co "><img src="ETHINDIA LOGO.svg" alt="ETHINDIA LOGO" className="w-40 h-fit py-4 px-8 bg-white rounded-xl" /></a>
+          <a href="https://polygon.technology "><img src="POLYGON LOGO.svg" alt="POLYGON LOGO" className="w-40 h-fit py-4 px-8 bg-white rounded-xl" /></a>
        
         </div>
         <div className="flex gap-8 justify-center items-center py-12">
