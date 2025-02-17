@@ -1,6 +1,6 @@
 export const IntroSection = () => {
   return (
-    <section className="md:items-left flex h-full w-full flex-col items-center justify-center gap-7 bg-[#05050A] px-5 pt-30 text-center">
+    <section className="md:items-left flex h-full w-full flex-col items-center justify-center gap-7 bg-[#05050A] px-5 lg:px-40 pt-30 text-center">
       <div className="relative mx-auto w-fit pb-2 text-center">
         <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent md:text-left">
           Define isn't just another hackathon.
