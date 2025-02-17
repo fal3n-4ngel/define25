@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <nav className="backdrop-blur-md/30 z-50 mx-auto flex w-full items-center justify-between p-4 backdrop-filter lg:max-w-[70vw] lg:pt-12 lg:pb-8">
+    <motion.nav
+      initial={{ y: "-100%" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="backdrop-blur-md/30 z-50 mx-auto flex w-full items-center justify-between p-4 backdrop-filter lg:max-w-[70vw] lg:pt-12 lg:pb-8"
+    >
       <img src="logo-nav.png" alt="Define Logo" />
       <button
-        className="group sm:hidden h-20 w-20 z-50"
+        className="group z-50 h-20 w-20 sm:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="grid justify-items-center gap-1.5">
@@ -60,7 +65,7 @@ function Navbar() {
           Register Now
         </button>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

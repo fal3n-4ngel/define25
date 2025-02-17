@@ -32,21 +32,23 @@ function App() {
   const shouldShowContent = !isAssetsLoading && animationCompleted;
 
   return (
-    <div className="relative min-h-screen w-full bg-[#05050A] text-white z-[200]">
-      <AnimatePresence>
+    <div className="relative z-[200] min-h-screen w-full bg-[#05050A] text-white">
+      <AnimatePresence propagate>
         {!shouldShowContent && (
           <motion.div
             key="loader"
             initial={{ y: 0 }}
-            animate={{  y: 0 }}
-            exit={{  y: "-100vh" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100vh" }}
             transition={{ duration: 1, ease: [0.5, 1, 0.89, 1] }}
-            className="absolute top-0 left-0 z-50 flex h-screen w-full items-center justify-center bg-[#05050A] z-[200]"
+            className="absolute top-0 left-0 z-[200] flex h-screen w-full items-center justify-center bg-[#05050A]"
           >
             <Lottie
               loop={false}
               animationData={loadingAnimation}
-              onComplete={() => setAnimationCompleted(true)}
+              onComplete={() => {
+                setAnimationCompleted(true);
+              }}
             />
           </motion.div>
         )}
