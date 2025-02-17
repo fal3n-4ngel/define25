@@ -1,16 +1,16 @@
 export const TaglineSection = () => {
   return (
-    <section className="flex flex-col w-full h-full bg-[#05050A] justify-center items-center pt-20">
-      <div className="overflow-hidden relative border border-white/10 px-52 py-24 rounded-[24px] shadow-2xl flex justify-center items-center">
-        <img
-          src="Logo Faded.png"
-          alt="Define Logo"
-          className="absolute top-0 pl mx-auto"
-        />
-        <h1 className="font-extralight tracking-tight leading-[117px] text-[56px] text-white">
-          24 Hours.&nbsp;&nbsp;&nbsp; Endless Possibilities.
-        </h1>
-      </div>
+    <section className="relative mx-auto my-24 flex h-full w-fit flex-col items-center justify-center overflow-hidden rounded-[24px] border border-white/10 bg-[#05050A] py-12 text-center md:w-full md:max-w-[80vw] md:py-24">
+      <div className="absolute top-0 left-1/2 h-[1px] w-[50%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#8f8f8fab] to-transparent"></div>
+
+      <img
+        src="Logo Faded.png"
+        alt="Define Logo"
+        className="pl absolute top-0 mx-auto"
+      />
+      <h1 className="text-[2rem] leading-none font-extralight tracking-tight text-white md:text-[4.5rem]">
+        24 Hours.&nbsp;&nbsp;&nbsp; Endless Possibilities.
+      </h1>
     </section>
   );
 };

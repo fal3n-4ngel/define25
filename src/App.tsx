@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/ui/Navbar";
-import { HeroContent } from "./components/pages/HeroSection";
+import { HeroSection } from "./components/pages/HeroSection";
 import { Model3D } from "./components/ui/3DModel";
 import { TaglineSection } from "./components/pages/TagLineSection";
 import { IntroSection } from "./components/pages/IntroSection";
@@ -15,50 +15,54 @@ function App() {
   });
 
   return (
-    <div className="text-white min-h-screen overflow-x-hidden w-full bg-[#05050A]">
-      <section className="relative flex flex-col w-full h-full items-stretch justify-start bg-[#05050A]  min-h-screen ">
+    <div className="relative min-h-screen w-full bg-[#05050A] text-white">
+      <section className="relative flex h-full min-h-screen w-full flex-col items-stretch justify-start bg-[#05050A] px-5 lg:px-40">
         <Navbar />
-        <HeroContent />
-        <div className="lg:pl-40  z-10">
-          <button className="bg-white text-sm text-black rounded-full max-w-[146px] py-2 px-4 mt-12 z-10 cursor-pointer ">
-            Register Now
-          </button>
-        </div>
-        <div ref={modelRef} className="absolute top-0 left-0 w-full h-full z-0">
-          {modelInView && <Model3D />}
-        </div>
+        <HeroSection />
       </section>
       <Marquee
-        className="border-y border-white bg-black w-full text-xl"
-        gradientColor="#05050A"
-        gradient={true}
+        className="z-30 w-screen border-y border-white bg-linear-to-r from-white to-[#999999] text-xl text-black"
         speed={40}
+        autoFill
       >
-        <div className="flex items-center gap-8 py-4 px-4">
-          POWERED BY <div className="w-2" /> UST GLOBAL <div className="w-2" />x{" "}
-          <div className="w-2" /> Ministry of Ayurveda, Yoga & Naturopathy,
-          Unani, Siddha and Homoeopathy
-          <div className="w-8" /> {/* Spacer between repetitions */}
+        <div className="flex items-center justify-center gap-2 px-4">
+          <p>Transform Tommorow, Today</p>
+          <span className="w-3 h-3 bg-black rounded-full"></span>
         </div>
       </Marquee>
-      <TaglineSection />
+      <div
+        ref={modelRef}
+        className="absolute top-0 left-0 z-0 hidden h-screen w-full md:block"
+      >
+        {modelInView && <Model3D />}
+      </div>
       <IntroSection />
+      <TaglineSection />
+      
       <BentoGrid sections={bentoSections} />
-      <section className="bg-[#05050A] w-full flex  flex-col justify-center items-center">
-      <h1 className="font-extralight tracking-tight  text-[56px] text-white">The backbone of Define</h1>
-      <h2 className="text-[#f1f7fea0] font-light">The ones who support the Hackathon</h2>
-      <div className="grid grid-cols-4 py-8 gap-4">
-        <img src="sponsorDummy.png" alt="Define Logo" />
-        <img src="sponsorDummy.png" alt="Define Logo" />
-        <img src="sponsorDummy.png" alt="Define Logo" />
-        <img src="sponsorDummy.png" alt="Define Logo" />
-      </div>
-      <div className="flex gap-8 justify-center items-center py-12">
-      <h2 className="text-[#f1f7fea0] font-light">Would like to extend your support?</h2>
-      <a className="bg-white rounded-full px-4 py-2 text-black cursor-pointer">View Sponsorship Guide</a>
-      </div>
+      <section className="flex w-full flex-col items-center justify-center bg-[#05050A]">
+        <h1 className="text-[56px] font-extralight tracking-tight text-white">
+          The backbone of Define
+        </h1>
+        <h2 className="font-light text-[#f1f7fea0]">
+          The ones who support the Hackathon
+        </h2>
+        <div className="grid grid-cols-4 gap-4 py-8">
+          <img src="sponsorDummy.png" alt="Define Logo" />
+          <img src="sponsorDummy.png" alt="Define Logo" />
+          <img src="sponsorDummy.png" alt="Define Logo" />
+          <img src="sponsorDummy.png" alt="Define Logo" />
+        </div>
+        <div className="flex items-center justify-center gap-8 py-12">
+          <h2 className="font-light text-[#f1f7fea0]">
+            Would like to extend your support?
+          </h2>
+          <a className="cursor-pointer rounded-full bg-white px-4 py-2 text-black">
+            View Sponsorship Guide
+          </a>
+        </div>
       </section>
-      <section className="bg-[#05050A] w-full min-h-screen"></section>
+      <section className="min-h-screen w-full bg-[#05050A]"></section>
     </div>
   );
 }
