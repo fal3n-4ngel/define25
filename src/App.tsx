@@ -14,6 +14,7 @@ import useAssetsLoader from "./hooks/useAssetsLoader";
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import loadingAnimation from "./assets/loading-animation.json";
+import { AnimatePresence, motion } from "motion/react";
 
 function App() {
   const isAssetsLoading = useAssetsLoader();
@@ -28,10 +29,31 @@ function App() {
     threshold: 0.1,
   });
 
+  const shouldShowContent = !isAssetsLoading && animationCompleted;
+
   return (
-    <>
-      {isAssetsLoading == false && animationCompleted == true ? (
-        <div className="relative min-h-screen w-full bg-[#05050A] text-white">
+    <div className="relative min-h-screen w-full bg-[#05050A] text-white z-[200]">
+      <AnimatePresence>
+        {!shouldShowContent && (
+          <motion.div
+            key="loader"
+            initial={{ y: 0 }}
+            animate={{  y: 0 }}
+            exit={{  y: "-100vh" }}
+            transition={{ duration: 1, ease: [0.5, 1, 0.89, 1] }}
+            className="absolute top-0 left-0 z-50 flex h-screen w-full items-center justify-center bg-[#05050A] z-[200]"
+          >
+            <Lottie
+              loop={false}
+              animationData={loadingAnimation}
+              onComplete={() => setAnimationCompleted(true)}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {shouldShowContent && (
+        <>
           <section className="relative flex h-full min-h-screen w-full flex-col items-stretch justify-start bg-[#05050A] px-5 lg:px-40">
             <Navbar />
             <HeroSection />
@@ -42,7 +64,7 @@ function App() {
             autoFill
           >
             <div className="flex items-center justify-center gap-2 px-4">
-              <p>Transform Tommorow, Today</p>
+              <p>Transform Tomorrow, Today</p>
               <span className="h-3 w-3 rounded-full bg-black"></span>
             </div>
           </Marquee>
@@ -54,7 +76,6 @@ function App() {
           </div>
           <IntroSection />
           <TaglineSection />
-
           <BentoGrid sections={bentoSections} />
           <section className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] px-5 lg:px-40">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
@@ -86,27 +107,16 @@ function App() {
           </section>
           <section className="my-40 flex w-full flex-col items-center justify-center gap-5 bg-[#05050A]">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
-              What you waiting for?
+              What are you waiting for?
             </h1>
             <button className="cursor-pointer rounded-full bg-white px-4 py-2 text-black">
               Register Now
             </button>
           </section>
           <Footer />
-        </div>
-      ) : (
-        <div className="absolute top-0 left-0 h-screen w-screen overflow-hidden bg-[#05050A] flex justify-center items-center">
-          <Lottie
-            preload=""
-            loop={false}
-            animationData={loadingAnimation}
-            onComplete={() => {
-              setAnimationCompleted(true);
-            }}
-          />
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 }
 
