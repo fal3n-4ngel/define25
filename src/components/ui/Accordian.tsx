@@ -6,7 +6,7 @@ import {
   Content,
 } from "@radix-ui/react-accordion";
 import ChevronDown from "./ChevronDown";
-import { accordianItems } from "../../data/AccordianItems";
+import { accordianItems } from "../../data/accordianItems";
 
 export default function Accordian() {
   return (
