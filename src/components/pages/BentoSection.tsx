@@ -15,10 +15,11 @@ interface Section {
         "group relative rounded-xl bg-white/[0.01] p-6 transition-all duration-300 hover:bg-zinc-800 border-[0.1px] border-[#ffffff10]";
       
       const sizeClasses: Record<number, string> = {
-        1: "col-span-1 row-span-2",
-        2: "col-span-2 row-span-1",
+        1: "md:col-span-1 md:row-span-2",
+        2: "md:col-span-1 md:row-span-1 lg:col-span-2",
+        3: "md:row-span-2 lg:row-span-1",
         4: "md:col-span-1 md:row-span-2",
-        5: "md:col-span-2 md:row-span-1",
+        5: "md:col-span-1 md:row-span-1 lg:col-span-2",
       };
   
       return `${baseClasses} ${sizeClasses[id] || ""}`;
@@ -28,7 +29,7 @@ interface Section {
       <a href="#" className={getSectionClassName(section.id)}>
         <div className="relative h-full w-full">
           <div className="flex flex-col gap-2">
-            <h2 className="text-[24px] leading-[10px] mb-4">{section.title}</h2>
+            <h2 className="text-[24px] leading-[10px] mb-4">{section.title} {section.id}</h2>
             <p className="text-gray-400 text-[12px] leading-[16px]">
               {section.subtitle}
             </p>
