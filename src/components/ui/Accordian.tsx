@@ -14,7 +14,6 @@ export default function Accordian() {
       <Root
         className="w-[600px] rounded-md shadow-[0_2px_10px] shadow-black/5"
         type="single"
-        defaultValue="item-1"
         collapsible
       >
         {accordianItems.flatMap((item, i) => (
