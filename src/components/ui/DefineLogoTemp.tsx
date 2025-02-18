@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { CubeCamera, MeshRefractionMaterial, useGLTF } from "@react-three/drei";
 import { GLTF, RGBELoader } from "three-stdlib";
 import { GroupProps, useFrame, useLoader } from "@react-three/fiber";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { useDrag } from "@use-gesture/react";
 
 interface GLTFResult extends GLTF {
@@ -30,7 +30,7 @@ export function DefineLogoTemp() {
 
   const texture = useLoader(
     RGBELoader,
-    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_02_1k.hdr"
+    "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_02_1k.hdr",
   );
 
   const materialConfig = useMemo(
@@ -42,7 +42,7 @@ export function DefineLogoTemp() {
       color: "white",
       transmissionSampler: false,
     }),
-    []
+    [],
   );
 
   const size = 0.75;
@@ -52,7 +52,7 @@ export function DefineLogoTemp() {
       rotation: new THREE.Euler(-Math.PI / 1.7, -Math.PI / 2.75, 0),
       scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
     }),
-    [size]
+    [size],
   );
 
   const MAX_ROTATION = Math.PI / 4;
@@ -68,7 +68,6 @@ export function DefineLogoTemp() {
     }
     if (last) {
       setDragging(false);
-
       lastDragTime.current = Date.now();
     }
 
@@ -78,22 +77,42 @@ export function DefineLogoTemp() {
       const newRotationY = clampRotation(
         logoRef.current.rotation.y - dx * sensitivity,
         logoRef.current.rotation.y - MAX_ROTATION,
-        logoRef.current.rotation.y + MAX_ROTATION
+        logoRef.current.rotation.y + MAX_ROTATION,
       );
 
       const newRotationX = clampRotation(
         logoRef.current.rotation.x - dy * sensitivity,
-        // initialRotation.x - MAX_ROTATION, -> not limiting the rotation coz it glitches fix later
-        // initialRotation.x + MAX_ROTATION
-
         logoRef.current.rotation.x - MAX_ROTATION,
-        logoRef.current.rotation.x + MAX_ROTATION
+        logoRef.current.rotation.x + MAX_ROTATION,
       );
 
       logoRef.current.rotation.y = newRotationY;
       logoRef.current.rotation.x = newRotationX;
     }
   });
+
+  const [scale, setScale] = useState(0.8);
+
+  useEffect(() => {
+    let scaleAnimationFrame: number;
+
+    const scaleAnimation = () => {
+      setScale((prev) => {
+        const newScale = prev + 0.01;
+        if (newScale >= 1) {
+          cancelAnimationFrame(scaleAnimationFrame);
+          return 1;
+        }
+        return newScale;
+      });
+
+      scaleAnimationFrame = requestAnimationFrame(scaleAnimation);
+    };
+
+    scaleAnimation(); // Start animation
+
+    return () => cancelAnimationFrame(scaleAnimationFrame); // Cleanup on unmount
+  }, []);
 
   useFrame((_state, delta) => {
     if (!logoRef.current) return;
@@ -114,11 +133,18 @@ export function DefineLogoTemp() {
   });
 
   return (
-    <CubeCamera resolution={10} frames={60} envMap={texture} far={-10} near={10}>
+    <CubeCamera
+      resolution={10}
+      frames={60}
+      envMap={texture}
+      far={-10}
+      near={10}
+    >
       {(envMap) => (
         <group
           ref={logoRef}
           position={[5, -1, -1]}
+          scale={[scale, scale, scale]} // Apply scaling animation here
           {...(bind() as unknown as GroupProps)}
         >
           <mesh ref={meshRef} geometry={nodes.Cube005.geometry} {...meshProps}>
