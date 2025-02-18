@@ -30,7 +30,9 @@ function App() {
     threshold: 0.1,
   });
 
-  const shouldShowContent = !isAssetsLoading && animationCompleted;
+  const shouldShowContent = animationCompleted;
+  // const shouldShowContent = !isAssetsLoading && animationCompleted;
+
 
   return (
     <div className="relative z-[200] min-h-screen w-full bg-[#05050A] text-white">

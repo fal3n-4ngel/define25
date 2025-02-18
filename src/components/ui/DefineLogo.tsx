@@ -22,7 +22,7 @@ export function DefineLogo() {
   const meshRef = useRef<THREE.Mesh>(null);
   const [dragging, setDragging] = useState(false);
 
-  const initialRotation = useMemo(() => new THREE.Euler(-0, 0, 0), []);
+  const initialRotation = useMemo(() => new THREE.Euler(0, 0, 0), []);
   const autoRotationSpeed = 0.5;
   const lastDragTime = useRef(0);
 
@@ -143,7 +143,7 @@ export function DefineLogo() {
       {(envMap) => (
         <group
           ref={logoRef}
-          position={[5, -2, -1]}
+          position={[5, -3, -1]}
           scale={[scale, scale, scale]}
           {...(bind() as unknown as GroupProps)}
         >
