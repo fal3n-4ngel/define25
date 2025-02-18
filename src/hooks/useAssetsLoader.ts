@@ -19,7 +19,10 @@ const useAssetsLoader = (): boolean => {
         glbFile,
         () => setGlbFileLoaded(true),
         undefined,
-        (error) => console.error(`Error loading GLB file: ${glbFile}`, error),
+        (error) => {
+          console.error(`Error loading GLB file: ${glbFile}`, error)
+          setGlbFileLoaded(true);
+        },
       );
     }
 

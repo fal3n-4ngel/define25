@@ -18,6 +18,7 @@ export default function Accordian() {
       >
         {accordianItems.flatMap((item, i) => (
           <Item
+            key={i}
             className="rounded-[3px] bg-gradient-to-b from-white/5 to-white/0 p-4"
             value={"item-"+i}
           >

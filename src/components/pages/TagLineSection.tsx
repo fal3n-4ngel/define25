@@ -11,7 +11,7 @@ export const TaglineSection = () => {
         alt="Define Logo"
         className="pl absolute top-0 mx-auto"
       />
-      <TextGenerateEffect duration={0.5} words={words} />
+      <TextGenerateEffect duration={1} words={words} />
       {/* <h1 className="text-[2rem] leading-none font-extralight tracking-tight text-white md:text-[4.5rem]">
       </h1> */}
     </section>

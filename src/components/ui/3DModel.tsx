@@ -5,8 +5,9 @@ import {
   // HueSaturation,
   // ToneMapping,
 } from "@react-three/postprocessing";
-import { DefineLogoTemp } from "./DefineLogoTemp";
+// import { DefineLogoTemp } from "./DefineLogoTemp";
 import { ACESFilmicToneMapping } from "three";
+import { DefineLogo } from "./DefineLogo";
 
 export const Model3D = () => {
   return (
@@ -15,15 +16,15 @@ export const Model3D = () => {
         shadows
         camera={{ position: [0, 1.5, 15], fov: 40 }}
         dpr={[1, 2]}
-        performance={{ min: 0.5 }}
+        // performance={{ min: 0.5 }}
         gl={{
           toneMapping: ACESFilmicToneMapping,
           toneMappingExposure: 0.8,
         }}
       >
         <color attach="background" args={["#05050A"]} />
-          <DefineLogoTemp />
-        {/* <DefineLogo/> */}
+          {/* <DefineLogoTemp /> */}
+        <DefineLogo/>
 
         <EffectComposer multisampling={8}>
           <Bloom

@@ -37,7 +37,7 @@ export const HeroSection = () => {
           Hackathon
         </h1>
         <h2 className="py-1 text-2xl lg:text-3xl/10">8th & 9th March</h2>
-        <h3 className="bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text pb-2 text-xl tracking-[-1.4px] text-transparent">
+        <h3 className="bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text font-light tracking-wide pb-2 text-xl text-transparent">
           Mar Baselios College Of Engineering & Technology, Trivandrum.
         </h3>
         {/* <p className="text-md py-2 text-[#f1f7fe] opacity-70 select-none lg:text-lg">

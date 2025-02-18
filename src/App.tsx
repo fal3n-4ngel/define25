@@ -15,13 +15,14 @@ import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import loadingAnimation from "./assets/loading-animation.json";
 import { AnimatePresence, motion } from "motion/react";
+import PriceBanner from "./components/ui/PriceBanner";
 
 function App() {
   const isAssetsLoading = useAssetsLoader();
   const [animationCompleted, setAnimationCompleted] = useState(false);
 
   useEffect(() => {
-    console.log(isAssetsLoading, !animationCompleted);
+    console.log(!isAssetsLoading, animationCompleted);
   }, [isAssetsLoading, animationCompleted]);
 
   const { ref: modelRef, inView: modelInView } = useInView({
@@ -79,6 +80,7 @@ function App() {
           <IntroSection />
           <TaglineSection />
           <BentoGrid sections={bentoSections} />
+          <PriceBanner />
           <section className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] px-5 lg:px-40">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
               The backbone of Define
