@@ -7,7 +7,6 @@
     url("/src/assets/fonts/Nohemi-ExtraLight.woff") format("woff"),
     url("/src/assets/fonts/Nohemi-ExtraLight.ttf") format("truetype");
   font-weight: 200;
-  font-style: normal;
 }
 
 @font-face {
@@ -17,7 +16,6 @@
     url("/src/assets/fonts/Nohemi-Light.woff") format("woff"),
     url("/src/assets/fonts/Nohemi-Light.ttf") format("truetype");
   font-weight: 300;
-  font-style: normal;
 }
 
 @font-face {
@@ -27,7 +25,6 @@
     url("/src/assets/fonts/Nohemi-Regular.woff") format("woff"),
     url("/src/assets/fonts/Nohemi-Regular.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal;
 }
 
 @font-face {
@@ -37,7 +34,6 @@
     url("/src/assets/fonts/Nohemi-Medium.woff") format("woff"),
     url("/src/assets/fonts/Nohemi-Medium.ttf") format("truetype");
   font-weight: 500;
-  font-style: normal;
 }
 
 @font-face {
@@ -47,7 +43,6 @@
     url("/src/assets/fonts/Nohemi-Bold.woff") format("woff"),
     url("/src/assets/fonts/Nohemi-Bold.ttf") format("truetype");
   font-weight: 700;
-  font-style: normal;
 }
 
 @theme {

@@ -37,15 +37,18 @@ export const HeroSection = () => {
           Hackathon
         </h1>
         <h2 className="py-1 text-2xl lg:text-3xl/10">8th & 9th March</h2>
-        <h3 className="bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text font-light tracking-wide pb-2 text-xl text-transparent">
-          Mar Baselios College Of Engineering & Technology, Trivandrum.
+        <h3 className=" text-base font-extralight tracking-wide">
+          Department of Computer Science & Engineering,
+        </h3>
+        <h3 className="pb-2 text-xl font-light tracking-wide">
+          Mar Baselios College Of Engineering & Technology (Autonomous), Trivandrum.
         </h3>
         {/* <p className="text-md py-2 text-[#f1f7fe] opacity-70 select-none lg:text-lg">
         Compete with the brightest minds across India, build impactful
         solutions, and ignite your engineering spirit.
       </p> */}
 
-        <div className="mt-6">
+        <div className="mt-6 flex w-full h-fit md:justify-start justify-center">
           <button
             className="apply-button"
             data-hackathon-slug="definehack-3"
@@ -54,6 +57,7 @@ export const HeroSection = () => {
           />
         </div>
       </motion.div>
+      
     </div>
   );
 };

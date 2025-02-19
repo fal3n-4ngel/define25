@@ -39,9 +39,7 @@ function Navbar() {
         <a href="#about">About</a>
         <a href="#sponsorship">Sponsorship</a>
         <a href="#contact">Contact</a>
-        <button className="cursor-pointer rounded-full bg-white px-[22px] py-2 text-[16px] text-black">
-          Register Now
-        </button>
+
       </div>
 
       <div
@@ -61,9 +59,7 @@ function Navbar() {
         <a href="#contact" onClick={() => setIsOpen(false)}>
           Contact
         </a>
-        <button className="z-10 cursor-pointer rounded-full bg-white px-[22px] py-2 text-[16px] text-black">
-          Register Now
-        </button>
+
       </div>
     </motion.nav>
   );

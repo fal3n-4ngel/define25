@@ -13,9 +13,9 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-5">
           <div className="flex gap-5">
-            <InstagramIcon />
-            <LinkedInIcon />
-            <XIcon />
+            <InstagramIcon className=" cursor-pointer transition duration-200 hover:fill-white" />
+            <LinkedInIcon className=" cursor-pointer transition duration-200 hover:fill-white" />
+            <XIcon className=" cursor-pointer transition duration-200 hover:fill-white" />
           </div>
           <p>
             Dept. of Computer Science & Engineering,
@@ -24,10 +24,10 @@ export default function Footer() {
           </p>
         </div>
         <ul className="flex flex-row sm:flex-col justify-between">
-          <li>Home</li>
-          <li>About</li>
-          <li>Sponsorship</li>
-          <li>Contact</li>
+          <li><a className="hover:text-white/80 transition duration-200" href="#home">Home</a></li>
+          <li><a className="hover:text-white/80 transition duration-200" href="#about">About</a></li>
+          <li><a className="hover:text-white/80 transition duration-200" href="#sponsor">Sponsorship</a></li>
+          <li><a className="hover:text-white/80 transition duration-200" href="#contact">Contact</a></li>
         </ul>
       </div>
       <div className="flex items-center justify-between text-xs mt-30">
