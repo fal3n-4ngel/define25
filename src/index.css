@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@layer utilities {
+  body::-webkit-scrollbar {
+    width: 10px;
+    height: 20px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #05050A;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 100vh;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: rgb(194, 194, 194);
+  }
+}
+
 @font-face {
   font-family: "Nohemi";
   src:

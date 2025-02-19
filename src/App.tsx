@@ -1,4 +1,3 @@
-import "./App.css";
 import Navbar from "./components/ui/Navbar";
 import { HeroSection } from "./components/pages/HeroSection";
 import { Model3D } from "./components/ui/3DModel";
