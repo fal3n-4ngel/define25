@@ -17,7 +17,7 @@ export const HeroSection = () => {
 
   // Add styles to handle the devfolio button content
   useEffect(() => {
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       .apply-button {
         overflow: hidden !important;
@@ -35,7 +35,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div className="pl-5 lg:pl-16 z-10 flex w-full flex-1 flex-col items-center justify-center text-center md:items-start md:text-left min-h-[90vh]">
+    <div className="z-10 flex min-h-[90vh] w-full flex-1 flex-col items-center justify-center  text-center md:items-start md:text-left lg:pl-16">
       <motion.video
         initial={{ scale: "50%" }}
         animate={{ scale: "100%" }}
@@ -61,17 +61,16 @@ export const HeroSection = () => {
           Department of Computer Science & Engineering,
         </h3>
         <h3 className="pb-2 text-xl font-light tracking-wide">
-          Mar Baselios College Of Engineering & Technology (Autonomous), Trivandrum.
+          Mar Baselios College Of Engineering & Technology (Autonomous),
+          Trivandrum.
         </h3>
 
-        <div className="mt-6 flex w-full justify-center md:justify-start o-scrollbar">
-          
-            <button
-              className="apply-button  overflow-hidden w-fit h-fit no-scrollbar"
-              data-hackathon-slug="definehack-3"
-              data-button-theme="dark-inverted"
-            />
-      
+        <div className=" mt-6 flex w-full justify-center md:justify-start">
+          <button
+            className="apply-button  h-fit w-fit overflow-hidden"
+            data-hackathon-slug="definehack-3"
+            data-button-theme="dark-inverted"
+          />
         </div>
       </motion.div>
     </div>
