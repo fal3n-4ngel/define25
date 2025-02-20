@@ -214,9 +214,9 @@ function App() {
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
               What are you waiting for?
             </h1>
-            <button className="cursor-pointer rounded-full bg-white px-4 py-2 text-black">
+            <a href="https://definehack-3.devfolio.co/" target="_blank" className="cursor-pointer rounded-full bg-white px-4 py-2 text-black">
               Register Now
-            </button>
+            </a>
           </section>
           <Footer />
         </>
