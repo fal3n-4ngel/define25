@@ -75,7 +75,7 @@ function App() {
           <PriceBanner />
           <ThemesSection />
 
-          <section className="my-24 flex w-full flex-col items-center justify-center px-5 lg:px-40">
+          <section id="timeline" className="my-24 flex w-full flex-col items-center justify-center px-5 lg:px-40">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
               The Define Timeline
             </h1>
@@ -128,7 +128,7 @@ function App() {
               ))}
             </motion.div>
           </section>
-          <section className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] px-5 lg:px-40">
+          <section id="sponsor" className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] px-5 lg:px-40">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
             The Backbone of Define
             </h1>

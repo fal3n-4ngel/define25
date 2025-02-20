@@ -4,7 +4,7 @@ import XIcon from "./XIcon";
 
 export default function Footer() {
   return (
-    <footer className="relative px-10 pt-20 pb-5 lg:px-40">
+    <footer id="contact" className="relative px-10 pt-20 pb-5 lg:px-40">
       <div className="absolute top-0 left-1/2 h-[2px] w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#8f8f8fab] to-transparent"></div>
 
       <div className="flex flex-col justify-between gap-10 sm:flex-row">

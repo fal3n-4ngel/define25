@@ -98,3 +98,33 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Enable smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* For Safari and other browsers that don't support scroll-behavior */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Optional: If you want to disable smooth scroll for users who prefer reduced motion */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* For custom smooth scroll on specific elements */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* For better scrolling on iOS */
+}
+
+/* Optional: For JavaScript-based smooth scroll fallback */
+.js-smooth-scroll {
+  transition: all 0.3s ease-in-out;
+}
