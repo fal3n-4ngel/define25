@@ -174,7 +174,11 @@ function App() {
                 pauseOnHover
               >
                 <div className="ms-5 flex gap-5">
-                  <img src="/sponsors/ethindia.svg" alt="Define Logo" />
+                  <img src="/sponsors/ethindia.svg" alt="ETHINDIA Logo" />
+                  <div className="flex justify-center items-center">
+                  <img src="/sponsors/DEVFOLIO_LOGO.svg" alt="DEVFOLIO LOGO" className="h-10 " />
+                  </div>
+                 
                   <img
                     className=""
                     src="/sponsors/balsamiq.svg"
@@ -195,7 +199,7 @@ function App() {
               <h2 className="font-light text-[#f1f7fea0]">
                 Would like to extend your support?
               </h2>
-              <a className="sm:text-md cursor-pointer rounded-full bg-white px-4 py-2 text-center text-xs text-black">
+              <a target="_blank" href="https://drive.google.com/file/d/1-8nKc2cJ8fd6_XYgPUoU59hz54OezS_d/view?usp=sharing" className="sm:text-md cursor-pointer rounded-full bg-white px-4 py-2 text-center text-xs text-black">
                 View Sponsorship Guide
               </a>
             </div>

@@ -35,7 +35,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div id="home" className="z-10 flex min-h-[90vh] w-full flex-1 flex-col items-center justify-center  text-center md:items-start md:text-left lg:pl-16">
+    <div id="home" className="z-10 flex min-h-[90vh] w-full flex-1 flex-col items-center justify-center px-4 text-center md:items-start md:text-left lg:pl-16">
       <motion.video
         initial={{ scale: "50%" }}
         animate={{ scale: "100%" }}

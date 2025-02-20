@@ -60,7 +60,7 @@ export default function Footer() {
               Timeline
             </a>
           </li>
-          sponsor
+    
           <li>
             <a
               className="transition duration-200 hover:text-white/80"
