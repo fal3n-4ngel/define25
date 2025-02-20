@@ -23,7 +23,7 @@ export default function Accordian() {
             value={"item-"+i}
           >
             <Header>
-              <Trigger className="group text-md flex w-full cursor-pointer justify-between py-2">
+              <Trigger className="group text-md flex w-full cursor-pointer justify-between py-2 text-start">
                 <p>{item.triggerText}</p>
                 <ChevronDown className="transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180" />
               </Trigger>

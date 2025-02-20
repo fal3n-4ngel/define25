@@ -48,7 +48,7 @@ export default function ThemesSection() {
       </h1>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {themeCards.map((card) => (
-          <div className="relative h-[138px] w-[292px] overflow-clip rounded-[8.5px]">
+          <div key={card.text} className="relative h-[138px] w-[292px] overflow-clip rounded-[8.5px]">
             <p className="flex h-full w-full items-center justify-center text-center text-xl">
               {card.text}
             </p>

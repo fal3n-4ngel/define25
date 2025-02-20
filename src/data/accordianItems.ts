@@ -20,18 +20,13 @@ export const accordianItems: AccordianItem[] = [
       "A laptop, charger, and any necessary hardware. And stay hydrated with a bo'oh'o'wa'er.",
   },
   {
-    triggerText: "How will projects be judged?",
+    triggerText: "How will the projects be judged?",
     content:
       "Judges will evaluate projects based on innovation, functionality, impact, and technical execution",
   },
   {
-    triggerText: "Will mentors be available throughout the hackathon?",
+    triggerText: "Will I be able to make a project from multiple tracks??",
     content:
-      "Yes! There will be mentors accessible for guidance and code reviews.",
-  },
-  {
-    triggerText: "Will mentors be available throughout the hackathon?",
-    content:
-      "Yes! There will be mentors accessible for guidance and code reviews.",
+      "Yes. Multiple tracks can be taken into consideration for the ideation of your project.",
   },
 ];
