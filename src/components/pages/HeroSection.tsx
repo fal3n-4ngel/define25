@@ -35,7 +35,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div id="home" className="z-10 flex min-h-[calc(100vh-112px)] w-full flex-1 flex-col items-center justify-center px-4 text-center md:items-start md:text-left lg:pl-16">
+    <div id="home" className="z-10 flex min-h-[calc(100vh-157px)] w-full flex-1 flex-col items-center justify-center px-4 text-center md:items-start md:text-left lg:pl-16">
       <motion.video
         initial={{ scale: "50%" }}
         animate={{ scale: "100%" }}
@@ -60,7 +60,7 @@ export const HeroSection = () => {
         <h3 className="text-base font-extralight tracking-wide">
           Department of Computer Science & Engineering,
         </h3>
-        <h3 className="pb-2 text-xl font-light tracking-wide">
+        <h3 className="text-sm sm:text-xl font-light tracking-wide">
           Mar Baselios College Of Engineering & Technology (Autonomous),
           Trivandrum.
         </h3>
