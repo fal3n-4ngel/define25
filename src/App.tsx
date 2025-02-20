@@ -132,7 +132,7 @@ function App() {
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
             The Backbone of Define
             </h1>
-            <h2 className="font-light text-[#f1f7fea0]">
+            <h2 className="font-light text-[#f1f7fea0] text-center">
             The driving forces of innovation and limitless possibilities.
             </h2>
             <div className="mt-24 flex flex-col items-center justify-center gap-15">
