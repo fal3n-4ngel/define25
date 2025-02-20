@@ -5,35 +5,33 @@ interface AccordianItem {
 
 export const accordianItems: AccordianItem[] = [
   {
-    triggerText: "What are the judging criteria?",
+    triggerText: "Who can participate and how many members can be in a team?",
     content:
-      "Projects will be judged based on [List key criteria, e.g.,\
-            innovation, impact, technical complexity, presentation, user\
-            experience, etc.]. More detailed criteria will be shared during the\
-            event.",
+      "Students from freshers to final years can join in. 3 to 4 members can participate in a team.   ",
   },
   {
-    triggerText: "What are the judging criteria?",
+    triggerText: "Is there a registration fee?",
     content:
-      "Projects will be judged based on [List key criteria, e.g.,\
-            innovation, impact, technical complexity, presentation, user\
-            experience, etc.]. More detailed criteria will be shared during the\
-            event.",
+      "Nope. Zilch. Nada. ",
   },
   {
-    triggerText: "What are the judging criteria?",
+    triggerText: "What are the essentials I should bring?",
     content:
-      "Projects will be judged based on [List key criteria, e.g.,\
-            innovation, impact, technical complexity, presentation, user\
-            experience, etc.]. More detailed criteria will be shared during the\
-            event.",
+      "A laptop, charger, and any necessary hardware. And stay hydrated with a bo'oh'o'wa'er.",
   },
   {
-    triggerText: "What are the judging criteria?",
+    triggerText: "How will projects be judged?",
     content:
-      "Projects will be judged based on [List key criteria, e.g.,\
-            innovation, impact, technical complexity, presentation, user\
-            experience, etc.]. More detailed criteria will be shared during the\
-            event.",
+      "Judges will evaluate projects based on innovation, functionality, impact, and technical execution",
+  },
+  {
+    triggerText: "Will mentors be available throughout the hackathon?",
+    content:
+      "Yes! There will be mentors accessible for guidance and code reviews.",
+  },
+  {
+    triggerText: "Will mentors be available throughout the hackathon?",
+    content:
+      "Yes! There will be mentors accessible for guidance and code reviews.",
   },
 ];

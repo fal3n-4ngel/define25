@@ -27,8 +27,8 @@ export const BentoGrid: React.FC = () => {
       <h1 className="bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl">
         Beyond the Code
       </h1>
-      <h2 className="text-[20px] leading-[27px] font-light text-[#f1f7fe] opacity-70">
-        DefineHack is more than just coding.
+      <h2 className="text-[20px] leading-[27px] font-light text-[#f1f7fe] opacity-70 text-center">
+      Its more than just the code. 
       </h2>
       <div className="mx-auto grid w-full max-w-5xl auto-rows-[200px] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* {sections.map((section) => (
@@ -38,10 +38,9 @@ export const BentoGrid: React.FC = () => {
         <div className={getSectionClassName(1)}>
           <div className="flex h-full flex-col justify-between">
             <div className="p-6">
-              <h1 className="text-[26px]">Expanding Your Skillsets</h1>
+              <h1 className="text-[26px]">Master your Skillsets </h1>
               <p className="text-[15px] font-light tracking-[0.6px] leading-[18px]">
-                Learn new technologies, refine your coding abilities, and gain
-                practical experience.
+              Unlearn and learn yourself into new & better skills, all in the span of 24 hours.
               </p>
             </div>
             <div className="hidden h-full flex-col items-center justify-center sm:flex">
@@ -64,10 +63,9 @@ export const BentoGrid: React.FC = () => {
         <div className={getSectionClassName(2)}>
           <div className="flex h-full justify-between">
             <div className="pt-6 pl-6">
-              <h1 className="text-[26px]">Networking with Professionals</h1>
+              <h1 className="text-[26px]">Connect with Professionals </h1>
               <p className="text-[15px] font-light tracking-[0.6px] leading-[18px]">
-                Connect with mentors, judges, and potential employers from
-                leading tech companies.
+              Meet the masters of their craft and gain insights along the way.
               </p>
             </div>
             <img
@@ -91,8 +89,7 @@ export const BentoGrid: React.FC = () => {
             />
             <div className="flex flex-col gap-2 p-6">
               <h1 className="text-[26px]">
-                Winning <br></br> Awesome Prizes
-              </h1>
+              Win  Awesome <br/>Prizes</h1> 
               <p className="text-[15px] font-light tracking-[0.6px] leading-[18px]">
                 Compete for a range of prizes and recognition for your
                 ingenuity.
@@ -103,10 +100,9 @@ export const BentoGrid: React.FC = () => {
         <div className={getSectionClassName(4)}>
           <div className="flex h-full flex-col justify-between overflow-hidden relative">
             <div className="p-6">
-              <h1 className="text-[26px]">Expanding Your Skillsets</h1>
+              <h1 className="text-[26px]">Unleash your Creativity</h1>
               <p className="text-[15px] font-light tracking-[0.6px] leading-[18px]">
-                Learn new technologies, refine your coding abilities, and gain
-                practical experience.
+              Go beyond your comfort zone and create ideas that transcend.
               </p>
             </div>
             <div className="h-full flex-col items-center justify-center hidden sm:flex">
@@ -129,9 +125,9 @@ export const BentoGrid: React.FC = () => {
         <div className={getSectionClassName(5)}>
           <div className="flex h-full justify-between">
             <div className="pt-6 pl-6">
-              <h1 className="text-[26px]">Building Your Portfolio</h1>
+              <h1 className="text-[26px]">Build your Portfolio</h1>
               <p className="text-[15px] font-light tracking-[0.6px] leading-[18px]">
-              Showcase your projects to a wider audience and boost your career prospects.
+              Showcase all your impactful ideas to the world.
               </p>
             </div>
             <img className="pt-6 pr-2 hidden sm:block" src="/stair.png" alt="" />

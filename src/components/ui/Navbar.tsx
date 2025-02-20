@@ -10,7 +10,7 @@ function Navbar() {
       transition={{ duration: 1, ease: "easeOut" }}
       className="backdrop-blur-md/30 z-50 mx-auto flex w-full items-center justify-between p-4 backdrop-filter lg:max-w-[70vw] lg:pt-12 lg:pb-8"
     >
-      <img src="logo-nav.png" alt="Define Logo" />
+      <img src="define_logo.svg" className="w-30" alt="Define Logo" />
       <button
         className="group z-50 h-20 w-20 sm:hidden"
         onClick={() => setIsOpen(!isOpen)}

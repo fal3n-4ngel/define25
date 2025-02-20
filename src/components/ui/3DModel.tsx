@@ -1,20 +1,15 @@
 import { Canvas } from "@react-three/fiber";
-import {
-  EffectComposer,
-  Bloom,
-  // HueSaturation,
-  // ToneMapping,
-} from "@react-three/postprocessing";
 // import { DefineLogoTemp } from "./DefineLogoTemp";
 import { ACESFilmicToneMapping } from "three";
 import { DefineLogo } from "./DefineLogo";
+import { EffectComposer, Bloom } from "@react-three/postprocessing"
 
 export const Model3D = () => {
   return (
-    <div className="absolute z-0 h-full w-full flex-1">
+    <div className="relative w-full h-full overflow-hidden">
       <Canvas
+        style={{display: "block", width: "600px", height: "600px"}}
         shadows
-        camera={{ position: [0, 1.5, 15], fov: 40 }}
         dpr={[1, 2]}
         // performance={{ min: 0.5 }}
         gl={{
@@ -30,7 +25,7 @@ export const Model3D = () => {
           <Bloom
             mipmapBlur
             luminanceThreshold={1.2}
-            intensity={0.3}
+            intensity={0.005}
             luminanceSmoothing={0.9}
           />
         </EffectComposer>

@@ -35,8 +35,8 @@ export const bentoSections: Section[] = [
   },
   {
     id: 5,
-    title: "Expanding Your Skillsets",
-    subtitle: "Learn new technologies, refine your coding abilities, and gain practical experience.",
+    title: "Will I be able to make a project from multiple tracks?",
+    subtitle: "Yes. Multiple tracks can be taken into consideration for the ideation of your project. ",
     size: "small",
   },
 ];

@@ -15,7 +15,7 @@ export const HeroSection = () => {
     };
   }, []);
   return (
-    <div className="z-10 flex w-full flex-1 flex-col items-center justify-center text-center md:w-[50%] md:items-start md:text-left">
+    <div className="pl-5 lg:pl-16 z-10 flex w-full flex-1 flex-col items-center justify-center text-center  md:items-start md:text-left">
       <motion.video
         initial={{ scale: "50%" }}
         animate={{ scale: "100%" }}

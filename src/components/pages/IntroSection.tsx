@@ -10,17 +10,16 @@ export const IntroSection = () => {
         <div className="absolute bottom-1 left-1/2 h-[1px] w-[50%] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#8f8f8fab] to-transparent"></div>
       </div>
       <h2 className="p-2 text-center text-[20px] leading-[27px] font-extralight tracking-[0.9px] text-[#F1F7FEBD]">
-        What does innovation mean to you? A groundbreaking app? A clever
-        solution to a real-world problem? At DefineHack, we challenge you to
-        define it. Join us for 24 intense hours of coding, collaboration, and
-        creation. Transform your wildest ideas into tangible projects,
-        surrounded by a community of passionate engineers. This isn't just a
-        hackathon; it's an experience.
+        At DefineHack, innovation isn’t a one-size-fits-all. You define it. All
+        in the span of 24 hours, take your audacious ideas, code it and make ‘em
+        pretty with design! To us, this isn’t about a game-changing solution or
+        a breakthrough app, it’s about a community of innovators creating the
+        future!
       </h2>
 
       <div className="absolute top-0 max-w-[100vw] -translate-y-1/2">
         <Marquee className="relative" speed={40} autoFill>
-          <div className="inline-flex h-[75px] w-fit items-center -ms-[0.1px]">
+          <div className="-ms-[0.1px] inline-flex h-[75px] w-fit items-center">
             <div className="flex w-fit items-center border-y border-white bg-[radial-gradient(243.33%_421.3%_at_-29.34%_-115.03%,rgba(0,107,214,0.30)_0%,rgba(73,100,255,0.30)_38.54%,rgba(0,107,214,0.30)_100%)] p-2 text-xl">
               <div className="relative mx-5 w-10">
                 <img
@@ -43,7 +42,7 @@ export const IntroSection = () => {
               </div>
 
               <div className="flex items-center text-white">
-                build for the real world
+                Tranform Tommorow , Today
               </div>
             </div>
           </div>

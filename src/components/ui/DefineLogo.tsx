@@ -45,11 +45,11 @@ export function DefineLogo() {
     [],
   );
 
-  const size = 0.75;
+  const size = 1.2;
   const meshProps = useMemo(
     () => ({
-      position: new THREE.Vector3(2.112, 2.6286, -0.976),
-      rotation: new THREE.Euler(-Math.PI / 1.7, -Math.PI / 2.75, 0),
+      position: new THREE.Vector3(0, 0, 0),
+      rotation: new THREE.Euler(-Math.PI / 1.9, -Math.PI / 2.75, 0),
       scale: new THREE.Vector3(2 * size, 0.6 * size, 1 * size),
     }),
     [size],
@@ -91,7 +91,7 @@ export function DefineLogo() {
     }
   });
 
-  const [scale, setScale] = useState(0.8);
+  const [scale, setScale] = useState(0.4);
 
   useEffect(() => {
     let scaleAnimationFrame: number;
@@ -99,9 +99,9 @@ export function DefineLogo() {
     const scaleAnimation = () => {
       setScale((prev) => {
         const newScale = prev + 0.01;
-        if (newScale >= 1) {
+        if (newScale >= 0.5) {
           cancelAnimationFrame(scaleAnimationFrame);
-          return 1;
+          return 0.5;
         }
         return newScale;
       });
@@ -143,7 +143,7 @@ export function DefineLogo() {
       {(envMap) => (
         <group
           ref={logoRef}
-          position={[5, -3, -1]}
+          position={[0, 0, 0]}
           scale={[scale, scale, scale]}
           {...(bind() as unknown as GroupProps)}
         >

@@ -1,6 +1,5 @@
 import Navbar from "./components/ui/Navbar";
 import { HeroSection } from "./components/pages/HeroSection";
-import { Model3D } from "./components/ui/3DModel";
 import { TaglineSection } from "./components/pages/TagLineSection";
 import { IntroSection } from "./components/pages/IntroSection";
 import { BentoGrid } from "./components/ui/BentoGrid";
@@ -15,6 +14,8 @@ import loadingAnimation from "./assets/loading-animation.json";
 import { AnimatePresence, motion } from "motion/react";
 import PriceBanner from "./components/ui/PriceBanner";
 import Marquee from "react-fast-marquee";
+import { Model3D } from "./components/ui/3DModel";
+import ThemesSection from "./components/pages/ThemesSection";
 
 function App() {
   const isAssetsLoading = useAssetsLoader();
@@ -57,33 +58,34 @@ function App() {
 
       {shouldShowContent && (
         <>
-          <section className="relative flex h-full min-h-screen w-full flex-col items-stretch justify-start bg-[#05050A] px-5 lg:px-40">
-            <Navbar />
+          <Navbar />
+          <section className="mx-auto flex h-full max-w-5xl flex-col items-center justify-between bg-[#05050A] md:max-w-7xl md:flex-row md:pb-24">
             <HeroSection />
-            <div className="max-w-[100vw]"></div>
+            <div ref={modelRef} className="hidden md:block">
+              {modelInView ? (
+                <Model3D />
+              ) : (
+                <div className="h-[600px] w-[600px]"></div>
+              )}
+            </div>
           </section>
-
-          <div
-            ref={modelRef}
-            className="absolute top-0 left-0 z-0 hidden h-screen w-full md:block"
-          >
-            {modelInView && <Model3D />}
-          </div>
           <IntroSection />
           <TaglineSection />
           <BentoGrid />
           <PriceBanner />
+          <ThemesSection />
+
           <section className="my-24 flex w-full flex-col items-center justify-center px-5 lg:px-40">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
               The Define Timeline
             </h1>
             <h2 className="font-light text-[#f1f7fea0]">
-              yep, some dates you need to keep in mind
+            Here’s what’s coming up!
             </h2>
             <motion.div className="mt-24 flex flex-col gap-2">
               {[
                 {
-                  date: "20th",
+                  date: "21st",
                   month: "February",
                   event: "Application Window begins",
                 },
@@ -128,69 +130,64 @@ function App() {
           </section>
           <section className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] px-5 lg:px-40">
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
-              The Backbone of Define
+            The Backbone of Define
             </h1>
             <h2 className="font-light text-[#f1f7fea0]">
-              The ones who support the Hackathon
+            The driving forces of innovation and limitless possibilities.
             </h2>
-            <div className="flex flex-col items-center justify-center gap-15 mt-24">
-              <div className="flex items-center justify-center gap-8">
+            <div className="mt-24 flex flex-col items-center justify-center gap-15">
+              <div className="flex flex-col items-center justify-center gap-8">
                 <div className="flex h-30 flex-col items-center justify-center">
-                  <p>Title Sponsor</p>
+                  <p className="text-3xl font-bold">Title Sponsor</p>
                   <img
-                    className="h-30 w-30 brightness-0 invert"
-                    src="/sponsors/ayush.png"
+                    className="w-[40vw] min-w-[250px]"
+                    src="/sponsors/department_of_ayush.png"
                     alt="Ayush"
                   />
                 </div>
-                <div className="flex h-30 flex-col items-center justify-center">
-                  <p>Gold Sponsor</p>
+              </div>
+              <div className="flex w-full items-center justify-center gap-8">
+                <div className="flex flex-col items-center justify-center">
+                  <p className="text-3xl font-bold">Platinum Sponsor</p>
                   <img
-                    className="h-30 w-30 p-5 brightness-0 invert"
+                    className="h-35 w-35 p-5"
                     src="/sponsors/ust.png"
                     alt="UST"
                   />
                 </div>
+
+                <div className="flex flex-col items-center justify-center">
+                  <p className="text-3xl font-bold">Gold Sponsor</p>
+                  <img
+                    className="h-35 w-35"
+                    src="/sponsors/IBS_Software.svg"
+                    alt="IBS Software"
+                  />
+                </div>
               </div>
+
               <Marquee
-                className="max-w-3xl"
+                className="max-w-[80vw]"
                 autoFill
                 gradient
                 gradientColor="#05050A"
                 pauseOnHover
               >
                 <div className="ms-5 flex gap-5">
-                  <img
-                    className="brightness-0 invert"
-                    src="/sponsors/IBS_Software.svg"
-                    alt="IBS Software"
-                  />
                   <img src="/sponsors/ethindia.svg" alt="Define Logo" />
                   <img
-                    className="brightness-0 invert"
+                    className=""
                     src="/sponsors/balsamiq.svg"
                     alt="balsamiq"
                   />
+                  <img className="" src="/sponsors/mbcetaa.png" alt="MBCETAA" />
+                  <img className="" src="/sponsors/csi.png" alt="CSI MBCET" />
                   <img
-                    className="grayscale"
-                    src="/sponsors/mbcetaa.png"
-                    alt="MBCETAA"
-                  />
-                  <img
-                    className="grayscale"
-                    src="/sponsors/csi.png"
-                    alt="CSI MBCET"
-                  />
-                  <img
-                    className="grayscale"
+                    className=""
                     src="/sponsors/vector_research.png"
                     alt="Vector Research"
                   />
-                  <img
-                    className="grayscale"
-                    src="/sponsors/xyz.png"
-                    alt="XYZ"
-                  />
+                  <img className="" src="/sponsors/xyz.png" alt="XYZ" />
                 </div>
               </Marquee>
             </div>
