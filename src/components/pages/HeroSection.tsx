@@ -14,8 +14,28 @@ export const HeroSection = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  // Add styles to handle the devfolio button content
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .apply-button {
+        overflow: hidden !important;
+      }
+      .apply-button > div {
+        height: 44px !important;
+        overflow: hidden !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
-    <div className="pl-5 lg:pl-16 z-10 flex w-full flex-1 flex-col items-center justify-center text-center  md:items-start md:text-left">
+    <div className="pl-5 lg:pl-16 z-10 flex w-full flex-1 flex-col items-center justify-center text-center md:items-start md:text-left min-h-[90vh]">
       <motion.video
         initial={{ scale: "50%" }}
         animate={{ scale: "100%" }}
@@ -37,27 +57,23 @@ export const HeroSection = () => {
           Hackathon
         </h1>
         <h2 className="py-1 text-2xl lg:text-3xl/10">8th & 9th March</h2>
-        <h3 className=" text-base font-extralight tracking-wide">
+        <h3 className="text-base font-extralight tracking-wide">
           Department of Computer Science & Engineering,
         </h3>
         <h3 className="pb-2 text-xl font-light tracking-wide">
           Mar Baselios College Of Engineering & Technology (Autonomous), Trivandrum.
         </h3>
-        {/* <p className="text-md py-2 text-[#f1f7fe] opacity-70 select-none lg:text-lg">
-        Compete with the brightest minds across India, build impactful
-        solutions, and ignite your engineering spirit.
-      </p> */}
 
-        <div className="mt-6 flex w-full h-fit md:justify-start justify-center">
-          <button
-            className="apply-button"
-            data-hackathon-slug="definehack-3"
-            data-button-theme="dark-inverted"
-            style={{ height: "44px", width: "312px" }}
-          />
+        <div className="mt-6 flex w-full justify-center md:justify-start o-scrollbar">
+          
+            <button
+              className="apply-button  overflow-hidden w-fit h-fit no-scrollbar"
+              data-hackathon-slug="definehack-3"
+              data-button-theme="dark-inverted"
+            />
+      
         </div>
       </motion.div>
-      
     </div>
   );
 };
