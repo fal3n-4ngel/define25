@@ -152,26 +152,37 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="flex w-full sm:gap-8 items-center justify-center">
-                <div className="flex-1 sm:flex-none self-end flex flex-col items-center justify-center">
-                  <p className="text-3xl font-bold">Platinum<br className="md:hidden"/> Sponsor</p>
-                  <div className="mt-5 rounded-[8.941px] flex justify-center w-[150px] h-20 border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
-                    <img
-                      className="h-full"
-                      src="/sponsors/ust.png"
-                      alt="UST"
-                    />
+              <div className="flex items-center justify-center max-sm:flex-col max-sm:gap-8 sm:gap-8">
+                <div className="flex flex-1 flex-col items-center justify-center sm:self-end">
+                  <p className="text-3xl font-bold">
+                    Platinum
+                    <br className="md:hidden" /> Sponsor
+                  </p>
+                  <div className="mt-5 flex h-20 w-[150px] justify-center rounded-[8.941px] border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                    <img className="h-full" src="/sponsors/ust.png" alt="UST" />
                   </div>
                 </div>
 
-                <div className="flex-1 sm:flex-none self-start flex flex-col items-center justify-center">
-                  <p className="text-3xl font-bold">Gold<br className="md:hidden"/> Sponsor</p>
-                  <div className="mt-5 rounded-[8.941px] flex justify-center w-[150px] h-20 border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
-                    <img
-                      className="h-full"
-                      src="/sponsors/IBS_Software.svg"
-                      alt="IBS Software"
-                    />
+                <div className="flex flex-1 flex-col items-center justify-center self-start sm:flex-none">
+                  <p className="text-3xl font-bold">
+                    Gold
+                    <br className="md:hidden" /> Sponsor
+                  </p>
+                  <div className="flex gap-2">
+                    <div className="mt-5 flex h-20 w-[150px] justify-center rounded-[8.941px] border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                      <img
+                        className="h-full"
+                        src="/sponsors/IBS_Software.svg"
+                        alt="IBS Software"
+                      />
+                    </div>
+                    <div className="mt-5 flex h-20 w-[150px] justify-center rounded-[8.941px] border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                      <img
+                        className="h-full"
+                        src="/sponsors/Arail.png"
+                        alt="Arail"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -200,11 +211,11 @@ function App() {
                   />
                   <img className="" src="/sponsors/mbcetaa.png" alt="MBCETAA" />
                   <img className="" src="/sponsors/csi.png" alt="CSI MBCET" />
-                  <img
+                  {/* <img
                     className=""
                     src="/sponsors/vector_research.png"
                     alt="Vector Research"
-                  />
+                  /> */}
                   <img className="" src="/sponsors/xyz.png" alt="XYZ" />
                 </div>
               </Marquee>
