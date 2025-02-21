@@ -26,8 +26,8 @@ export default function Footer() {
           <div>
             <h1>Contact Us</h1>
             hash@mbcet.ac.in <br />
-            +91 9405564078 (Sam Peter) <br />
-            +91 9778443473 (Rhon S George)
+            +91 9405564078 (Sam) <br />
+            +91 9778443473 (Rhon)
           </div>
           <p className="opacity-70">
             Dept. of Computer Science & Engineering,
