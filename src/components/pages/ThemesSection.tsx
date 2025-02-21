@@ -9,7 +9,7 @@ export default function ThemesSection() {
       color5: "#1A4869",
     },
     {
-      text: "AI in Traditional Medicine",
+      text: "AI in Ayush",
       color1: "#D9D9D9",
       color2: "#0E86C7",
       color3: "#D9D9D9",
