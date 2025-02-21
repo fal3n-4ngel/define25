@@ -30,8 +30,8 @@ function App() {
     threshold: 0.1,
   });
 
-  const shouldShowContent = animationCompleted;
-  // const shouldShowContent = !isAssetsLoading && animationCompleted;
+  // const shouldShowContent = animationCompleted;
+  const shouldShowContent = !isAssetsLoading && animationCompleted;
 
   return (
     <div className="relative z-[200] min-h-screen w-full overflow-x-hidden bg-[#05050A] text-white antialiased md:subpixel-antialiased">
@@ -135,7 +135,7 @@ function App() {
             <h2 className="font-light text-[#f1f7fea0] text-center">
             The driving forces of innovation and limitless possibilities.
             </h2>
-            <div className="mt-24 flex flex-col items-center justify-center gap-15">
+            <div className="mt-24 flex flex-col items-center justify-center gap-15 text-center">
               <div className="flex flex-col items-center justify-center gap-8">
                 <div className="flex h-30 flex-col items-center justify-center">
                   <p className="text-3xl font-bold">Title Sponsor</p>
@@ -150,7 +150,7 @@ function App() {
                 <div className="flex flex-col items-center justify-center">
                   <p className="text-3xl font-bold">Platinum Sponsor</p>
                   <img
-                    className="h-35 w-35 p-5"
+                    className="h-35 w-35 p-9 sm:p-5"
                     src="/sponsors/ust.png"
                     alt="UST"
                   />
