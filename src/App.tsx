@@ -211,7 +211,7 @@ function App() {
             </div>
             <div className="sm:text-md flex items-center justify-center gap-8 py-12 text-sm">
               <h2 className="font-light text-[#f1f7fea0]">
-                Would like to extend your support?
+                Like to extend your support?
               </h2>
               <a
                 target="_blank"

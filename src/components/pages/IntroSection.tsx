@@ -42,7 +42,7 @@ export const IntroSection = () => {
               </div>
 
               <div className="flex items-center text-white">
-                Tranform Tommorow , Today
+                Transform Tommorow , Today
               </div>
             </div>
           </div>
