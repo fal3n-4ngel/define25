@@ -7,8 +7,8 @@ import { useInView } from "react-intersection-observer";
 
 import Accordian from "./components/ui/Accordian";
 import Footer from "./components/ui/Footer";
-import useAssetsLoader from "./hooks/useAssetsLoader";
-import { useEffect, useState } from "react";
+// import useAssetsLoader from "./hooks/useAssetsLoader";
+import { useState } from "react";
 import Lottie from "lottie-react";
 import loadingAnimation from "./assets/loading-animation.json";
 import { AnimatePresence, motion } from "motion/react";
@@ -18,20 +18,20 @@ import { Model3D } from "./components/ui/3DModel";
 import ThemesSection from "./components/pages/ThemesSection";
 
 function App() {
-  const isAssetsLoading = useAssetsLoader();
+  // const isAssetsLoading = useAssetsLoader();
   const [animationCompleted, setAnimationCompleted] = useState(false);
 
-  useEffect(() => {
-    console.log(!isAssetsLoading, animationCompleted);
-  }, [isAssetsLoading, animationCompleted]);
+  // useEffect(() => {
+  //   console.log(!isAssetsLoading, animationCompleted);
+  // }, [isAssetsLoading, animationCompleted]);
 
   const { ref: modelRef, inView: modelInView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
 
-  // const shouldShowContent = animationCompleted;
-  const shouldShowContent = !isAssetsLoading && animationCompleted;
+  const shouldShowContent = animationCompleted;
+  // const shouldShowContent = !isAssetsLoading && animationCompleted;
 
   return (
     <div className="relative z-[200] min-h-screen w-full overflow-x-hidden bg-[#05050A] text-white antialiased md:subpixel-antialiased">
@@ -75,12 +75,15 @@ function App() {
           <PriceBanner />
           <ThemesSection />
 
-          <section id="timeline" className="my-24 flex w-full flex-col items-center justify-center px-5 lg:px-40">
+          <section
+            id="timeline"
+            className="my-24 flex w-full flex-col items-center justify-center px-5 lg:px-40"
+          >
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
               The Define Timeline
             </h1>
             <h2 className="font-light text-[#f1f7fea0]">
-            Here’s what’s coming up!
+              Here’s what’s coming up!
             </h2>
             <motion.div className="mt-24 flex flex-col gap-2">
               {[
@@ -128,41 +131,48 @@ function App() {
               ))}
             </motion.div>
           </section>
-          <section id="sponsor" className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] px-5 lg:px-40">
+          <section
+            id="sponsor"
+            className="my-24 flex w-full flex-col items-center justify-center bg-[#05050A] lg:px-40"
+          >
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
-            The Backbone of Define
+              The Backbone of Define
             </h1>
-            <h2 className="font-light text-[#f1f7fea0] text-center">
-            The driving forces of innovation and limitless possibilities.
+            <h2 className="text-center font-light text-[#f1f7fea0]">
+              The driving forces of innovation and limitless possibilities.
             </h2>
             <div className="mt-24 flex flex-col items-center justify-center gap-15 text-center">
               <div className="flex flex-col items-center justify-center gap-8">
                 <div className="flex h-30 flex-col items-center justify-center">
                   <p className="text-3xl font-bold">Title Sponsor</p>
                   <img
-                    className="w-[40vw] min-w-[250px]"
+                    className="w-full max-w-[650px] min-w-[250px]"
                     src="/sponsors/department_of_ayush.png"
                     alt="Ayush"
                   />
                 </div>
               </div>
-              <div className="flex w-full items-center justify-center gap-8">
-                <div className="flex flex-col items-center justify-center">
-                  <p className="text-3xl font-bold">Platinum Sponsor</p>
-                  <img
-                    className="h-35 w-35 p-9 sm:p-5"
-                    src="/sponsors/ust.png"
-                    alt="UST"
-                  />
+              <div className="flex w-full sm:gap-8 items-center justify-center">
+                <div className="flex-1 sm:flex-none self-end flex flex-col items-center justify-center">
+                  <p className="text-3xl font-bold">Platinum<br className="md:hidden"/> Sponsor</p>
+                  <div className="mt-5 rounded-[8.941px] flex justify-center w-[150px] h-20 border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                    <img
+                      className="h-full"
+                      src="/sponsors/ust.png"
+                      alt="UST"
+                    />
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center">
-                  <p className="text-3xl font-bold">Gold Sponsor</p>
-                  <img
-                    className="h-35 w-35"
-                    src="/sponsors/IBS_Software.svg"
-                    alt="IBS Software"
-                  />
+                <div className="flex-1 sm:flex-none self-start flex flex-col items-center justify-center">
+                  <p className="text-3xl font-bold">Gold<br className="md:hidden"/> Sponsor</p>
+                  <div className="mt-5 rounded-[8.941px] flex justify-center w-[150px] h-20 border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                    <img
+                      className="h-full"
+                      src="/sponsors/IBS_Software.svg"
+                      alt="IBS Software"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -175,10 +185,14 @@ function App() {
               >
                 <div className="ms-5 flex gap-5">
                   <img src="/sponsors/ethindia.svg" alt="ETHINDIA Logo" />
-                  <div className="flex justify-center items-center">
-                  <img src="/sponsors/DEVFOLIO_LOGO.svg" alt="DEVFOLIO LOGO" className="h-10 " />
+                  <div className="flex items-center justify-center">
+                    <img
+                      src="/sponsors/DEVFOLIO_LOGO.svg"
+                      alt="DEVFOLIO LOGO"
+                      className="h-10"
+                    />
                   </div>
-                 
+
                   <img
                     className=""
                     src="/sponsors/balsamiq.svg"
@@ -199,7 +213,11 @@ function App() {
               <h2 className="font-light text-[#f1f7fea0]">
                 Would like to extend your support?
               </h2>
-              <a target="_blank" href="https://drive.google.com/file/d/1-8nKc2cJ8fd6_XYgPUoU59hz54OezS_d/view?usp=sharing" className="sm:text-md cursor-pointer rounded-full bg-white px-4 py-2 text-center text-xs text-black">
+              <a
+                target="_blank"
+                href="https://drive.google.com/file/d/1-8nKc2cJ8fd6_XYgPUoU59hz54OezS_d/view?usp=sharing"
+                className="sm:text-md cursor-pointer rounded-full bg-white px-4 py-2 text-center text-xs text-black"
+              >
                 View Sponsorship Guide
               </a>
             </div>
@@ -214,7 +232,11 @@ function App() {
             <h1 className="relative bg-gradient-to-r from-[#ffffff80] via-white to-[#ffffff80] bg-clip-text text-center text-4xl font-light tracking-[-1.4px] text-transparent sm:text-5xl md:text-left">
               What are you waiting for?
             </h1>
-            <a href="https://definehack-3.devfolio.co/" target="_blank" className="cursor-pointer rounded-full bg-white px-4 py-2 text-black">
+            <a
+              href="https://definehack-3.devfolio.co/"
+              target="_blank"
+              className="cursor-pointer rounded-full bg-white px-4 py-2 text-black"
+            >
               Register Now
             </a>
           </section>
