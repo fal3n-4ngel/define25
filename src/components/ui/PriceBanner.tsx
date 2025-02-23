@@ -77,7 +77,7 @@ export default function PriceBanner(): React.JSX.Element {
       <div className="absolute -top-1/2 left-1/2 h-full w-1/2 -translate-x-1/2 rounded-full bg-radial from-white/10 to-transparent blur-[80px]"></div>
       <div>
         <p className="text-xl font-extralight sm:text-3xl">Prizes worth</p>
-        <h1 className="text-4xl font-extrabold sm:text-7xl">3.0 Lakhs</h1>
+        <h1 className="text-4xl font-extrabold sm:text-7xl">2.5 Lakhs</h1>
       </div>
     </div>
   );
