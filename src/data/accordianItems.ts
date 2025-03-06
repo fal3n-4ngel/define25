@@ -29,4 +29,9 @@ export const accordianItems: AccordianItem[] = [
     content:
       "Yes. Multiple tracks can be taken into consideration for the ideation of your project.",
   },
+  {
+    triggerText: "When will the problem statements be released?",
+    content:
+      "The problem statements will be released on or before the hackathon starts.", 
+  },
 ];
