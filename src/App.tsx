@@ -211,6 +211,9 @@ function App() {
                   />
                   <img className="" src="/sponsors/mbcetaa.png" alt="MBCETAA" />
                   <img className="" src="/sponsors/csi.png" alt="CSI MBCET" />
+                  <div className="flex items-center">
+                    <img className="h-10" src="/sponsors/opsverse.png" alt="OPSVERSE" />
+                  </div>
                   {/* <img
                     className=""
                     src="/sponsors/vector_research.png"
