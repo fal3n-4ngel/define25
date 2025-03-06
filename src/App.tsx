@@ -152,8 +152,8 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="flex items-center justify-center max-sm:flex-col max-sm:gap-8 sm:gap-8">
-                <div className="flex flex-1 flex-col items-center justify-center sm:self-end">
+              <div className="flex items-center justify-center flex-col max-sm:gap-8 sm:gap-8">
+                <div className="flex flex-1 flex-col items-center justify-center sm:self-end w-full">
                   <p className="text-3xl font-bold">
                     Platinum
                     <br className="md:hidden" /> Sponsor
@@ -163,7 +163,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col items-center justify-center self-start sm:flex-none">
+                <div className="flex flex-1 flex-col items-center justify-center self-start sm:flex-none w-full">
                   <p className="text-3xl font-bold">
                     Gold
                     <br className="md:hidden" /> Sponsor
@@ -185,8 +185,23 @@ function App() {
                     </div>
                   </div>
                 </div>
-              </div>
 
+                <div className="flex flex-1 flex-col items-center justify-center self-start sm:flex-none w-full">
+                  <p className="text-3xl font-bold">
+                    Silver
+                    <br className="md:hidden" /> Sponsor
+                  </p>
+                  <div className="flex gap-2">
+                    <div className="mt-5 flex h-20 w-[150px] items-center justify-center rounded-[8.941px] border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                      <img
+                        className="h-6"
+                        src="/sponsors/opsverse.png"
+                        alt="OPSVERSE"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
               <Marquee
                 className="max-w-[80vw]"
                 autoFill
@@ -209,11 +224,14 @@ function App() {
                     src="/sponsors/balsamiq.svg"
                     alt="balsamiq"
                   />
-                  <img className="" src="/sponsors/mbcetaa.png" alt="MBCETAA" />
-                  <img className="" src="/sponsors/csi.png" alt="CSI MBCET" />
-                  <div className="flex items-center">
-                    <img className="h-10" src="/sponsors/opsverse.png" alt="OPSVERSE" />
+                  <div className="flex items-center justify-center">
+                    <img
+                      className="h-10"
+                      src="/sponsors/mbcetaa-logo.png"
+                      alt="MBCETAA"
+                    />
                   </div>
+                  <img className="" src="/sponsors/csi.png" alt="CSI MBCET" />
                   {/* <img
                     className=""
                     src="/sponsors/vector_research.png"
