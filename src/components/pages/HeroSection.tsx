@@ -65,13 +65,7 @@ export const HeroSection = () => {
           Trivandrum.
         </h3>
 
-        <div className=" mt-6 flex w-full justify-center md:justify-start">
-          <button
-            className="apply-button  h-fit w-fit overflow-hidden"
-            data-hackathon-slug="definehack-3"
-            data-button-theme="dark-inverted"
-          />
-        </div>
+    
       </motion.div>
     </div>
   );
