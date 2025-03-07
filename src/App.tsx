@@ -199,6 +199,13 @@ function App() {
                         alt="OPSVERSE"
                       />
                     </div>
+                    <div className="mt-5 flex h-20 w-[150px] items-center justify-center rounded-[8.941px] border border-[rgba(255,255,255,0.11)] bg-[rgba(255,255,255,0.06)] p-2">
+                      <img
+                        className="h-10"
+                        src="/sponsors/federal_bank.png"
+                        alt="OPSVERSE"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
